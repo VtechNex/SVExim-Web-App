@@ -1,26 +1,26 @@
+import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
 } from "@/components/ui/select";
-import { Search, Filter, Star, ArrowRight } from "lucide-react";
+import { Search, Filter, Star, ArrowRight, CheckCircle } from "lucide-react";
 
- 
+
  import pumpImage from "@/assets/product-pump.jpg";
  import generatorImage from "@/assets/product-generator.jpg";
  import valvesImage from "@/assets/product-valves.jpg";
  import heatExchangerImage from "@/assets/product-heat-exchanger.jpg";
  import propulsionImage from "@/assets/product-propulsion.jpg";
  import compressorImage from "@/assets/product-compressor.jpg";
-
 const Products = () => {
   const allProducts = [
     {
@@ -83,7 +83,254 @@ const Products = () => {
       rating: 4.6,
       inStock: true,
     },
+    {
+      id: 7,
+      name: "High-Pressure Industrial Pump",
+      category: "Industrial Pumps",
+      brand: "SV Premium",
+      image: pumpImage,
+      specs: "Flow Rate: 750 GPM | Head: 300 ft | Material: SS316",
+      rating: 4.8,
+      inStock: true,
+    },
+    {
+      id: 8,
+      name: "Gas Turbine Generator",
+      category: "Power Generation",
+      brand: "SV Marine",
+      image: generatorImage,
+      specs: "Power: 500 KVA | RPM: 1800 | Fuel: Natural Gas",
+      rating: 4.7,
+      inStock: false,
+    },
+    {
+      id: 9,
+      name: "Gate Valve Assembly",
+      category: "Valves & Controls",
+      brand: "SV Industrial",
+      image: valvesImage,
+      specs: "Size: 4-24 inches | Pressure: 800 PSI | Material: Carbon Steel",
+      rating: 4.6,
+      inStock: true,
+    },
+    {
+      id: 10,
+      name: "Plate Heat Exchanger",
+      category: "Process Equipment",
+      brand: "SV Process",
+      image: heatExchangerImage,
+      specs: "Capacity: 750 kW | Plates: Stainless Steel | Design: Plate & Frame",
+      rating: 4.8,
+      inStock: true,
+    },
+    {
+      id: 11,
+      name: "Azimuth Thruster System",
+      category: "Marine Equipment",
+      brand: "SV Marine",
+      image: propulsionImage,
+      specs: "Power: 1500 HP | Shaft: Stainless Steel | Propeller: 5-blade",
+      rating: 4.9,
+      inStock: true,
+    },
+    {
+      id: 12,
+      name: "Rotary Screw Compressor",
+      category: "Compressors",
+      brand: "SV Industrial",
+      image: compressorImage,
+      specs: "Capacity: 750 CFM | Pressure: 200 PSI | Motor: 75 HP",
+      rating: 4.7,
+      inStock: true,
+    },
+    {
+      id: 13,
+      name: "Submersible Pump System",
+      category: "Industrial Pumps",
+      brand: "SV Premium",
+      image: pumpImage,
+      specs: "Flow Rate: 300 GPM | Head: 150 ft | Material: Cast Iron",
+      rating: 4.5,
+      inStock: true,
+    },
+    {
+      id: 14,
+      name: "Emergency Generator Set",
+      category: "Power Generation",
+      brand: "SV Marine",
+      image: generatorImage,
+      specs: "Power: 100 KVA | RPM: 1500 | Fuel: Diesel",
+      rating: 4.6,
+      inStock: true,
+    },
+    {
+      id: 15,
+      name: "Control Valve Package",
+      category: "Valves & Controls",
+      brand: "SV Industrial",
+      image: valvesImage,
+      specs: "Size: 1-6 inches | Pressure: 400 PSI | Material: SS316",
+      rating: 4.8,
+      inStock: false,
+    },
+    {
+      id: 16,
+      name: "Spiral Heat Exchanger",
+      category: "Process Equipment",
+      brand: "SV Process",
+      image: heatExchangerImage,
+      specs: "Capacity: 300 kW | Tubes: Copper | Design: Spiral",
+      rating: 4.7,
+      inStock: true,
+    },
+    {
+      id: 17,
+      name: "Bow Thruster Unit",
+      category: "Marine Equipment",
+      brand: "SV Marine",
+      image: propulsionImage,
+      specs: "Power: 800 HP | Shaft: Stainless Steel | Propeller: 4-blade",
+      rating: 4.8,
+      inStock: true,
+    },
+    {
+      id: 18,
+      name: "Centrifugal Compressor",
+      category: "Compressors",
+      brand: "SV Industrial",
+      image: compressorImage,
+      specs: "Capacity: 1000 CFM | Pressure: 150 PSI | Motor: 100 HP",
+      rating: 4.9,
+      inStock: true,
+    },
+    {
+      id: 19,
+      name: "Diaphragm Pump",
+      category: "Industrial Pumps",
+      brand: "SV Premium",
+      image: pumpImage,
+      specs: "Flow Rate: 200 GPM | Head: 100 ft | Material: PVDF",
+      rating: 4.4,
+      inStock: true,
+    },
+    {
+      id: 20,
+      name: "Solar Generator System",
+      category: "Power Generation",
+      brand: "SV Marine",
+      image: generatorImage,
+      specs: "Power: 50 KVA | RPM: Variable | Fuel: Solar",
+      rating: 4.5,
+      inStock: true,
+    },
+    {
+      id: 21,
+      name: "Check Valve Series",
+      category: "Valves & Controls",
+      brand: "SV Industrial",
+      image: valvesImage,
+      specs: "Size: 0.5-4 inches | Pressure: 300 PSI | Material: Brass",
+      rating: 4.6,
+      inStock: true,
+    },
+    {
+      id: 22,
+      name: "Air-Cooled Heat Exchanger",
+      category: "Process Equipment",
+      brand: "SV Process",
+      image: heatExchangerImage,
+      specs: "Capacity: 400 kW | Fins: Aluminum | Design: Air Cooled",
+      rating: 4.8,
+      inStock: false,
+    },
+    {
+      id: 23,
+      name: "Tunnel Thruster",
+      category: "Marine Equipment",
+      brand: "SV Marine",
+      image: propulsionImage,
+      specs: "Power: 600 HP | Shaft: Stainless Steel | Propeller: 3-blade",
+      rating: 4.7,
+      inStock: true,
+    },
+    {
+      id: 24,
+      name: "Reciprocating Compressor",
+      category: "Compressors",
+      brand: "SV Industrial",
+      image: compressorImage,
+      specs: "Capacity: 300 CFM | Pressure: 300 PSI | Motor: 40 HP",
+      rating: 4.5,
+      inStock: true,
+    },
+    {
+      id: 25,
+      name: "Gear Pump Unit",
+      category: "Industrial Pumps",
+      brand: "SV Premium",
+      image: pumpImage,
+      specs: "Flow Rate: 100 GPM | Head: 250 ft | Material: Cast Steel",
+      rating: 4.7,
+      inStock: true,
+    },
+    {
+      id: 26,
+      name: "Wind Turbine Generator",
+      category: "Power Generation",
+      brand: "SV Marine",
+      image: generatorImage,
+      specs: "Power: 200 KVA | RPM: Variable | Fuel: Wind",
+      rating: 4.6,
+      inStock: true,
+    },
+    {
+      id: 27,
+      name: "Pressure Relief Valve",
+      category: "Valves & Controls",
+      brand: "SV Industrial",
+      image: valvesImage,
+      specs: "Size: 2-8 inches | Pressure: 1000 PSI | Material: Alloy Steel",
+      rating: 4.9,
+      inStock: true,
+    },
+    {
+      id: 28,
+      name: "Finned Tube Heat Exchanger",
+      category: "Process Equipment",
+      brand: "SV Process",
+      image: heatExchangerImage,
+      specs: "Capacity: 600 kW | Tubes: Carbon Steel | Design: Finned Tube",
+      rating: 4.7,
+      inStock: true,
+    },
+    {
+      id: 29,
+      name: "Controllable Pitch Propeller",
+      category: "Marine Equipment",
+      brand: "SV Marine",
+      image: propulsionImage,
+      specs: "Power: 2000 HP | Shaft: Stainless Steel | Propeller: CPP",
+      rating: 4.9,
+      inStock: false,
+    },
+    {
+      id: 30,
+      name: "Oil-Free Compressor",
+      category: "Compressors",
+      brand: "SV Industrial",
+      image: compressorImage,
+      specs: "Capacity: 600 CFM | Pressure: 125 PSI | Motor: 60 HP",
+      rating: 4.8,
+      inStock: true,
+    },
   ];
+
+  const [visibleProducts, setVisibleProducts] = useState(8);
+  const productsToShow = allProducts.slice(0, visibleProducts);
+
+  const loadMore = () => {
+    setVisibleProducts(prev => Math.min(prev + 8, allProducts.length));
+  };
 
   const categories = [
     "All Categories",
@@ -158,7 +405,7 @@ const Products = () => {
         {/* Results Summary */}
         <div className="flex justify-between items-center mb-8 pb-4 border-b border-border">
           <p className="text-muted-foreground">
-            Showing {allProducts.length} products
+            Showing {productsToShow.length} of {allProducts.length} products
           </p>
           <Button variant="outline" size="sm">
             <Filter className="h-4 w-4 mr-2" />
@@ -168,7 +415,7 @@ const Products = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allProducts.map((product) => (
+          {productsToShow.map((product) => (
             <Card
               key={product.id}
               className="group hover:shadow-card-hover transition-all duration-300 cursor-pointer overflow-hidden border-border/50 hover:border-primary/20"
@@ -239,9 +486,16 @@ const Products = () => {
 
         {/* Load More */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            Load More Products
-          </Button>
+          {visibleProducts < allProducts.length ? (
+            <Button variant="outline" size="lg" onClick={loadMore}>
+              Load More Products
+            </Button>
+          ) : (
+            <div className="flex items-center justify-center space-x-2 text-muted-foreground">
+              <CheckCircle className="h-5 w-5 text-green-500" />
+              <span>No more products to load</span>
+            </div>
+          )}
         </div>
       </main>
       

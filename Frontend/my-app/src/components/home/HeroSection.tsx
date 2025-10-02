@@ -1,8 +1,11 @@
 import { Button } from "../ui/button";
 import { ArrowRight, Award, Globe, Shield } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "../../assets/hero-industrial-equipment.jpg";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-background via-brand-light to-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +29,7 @@ const HeroSection = () => {
                 Get Quote Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="lg" onClick={() => navigate('/products')}>
                 View Products
               </Button>
             </div>

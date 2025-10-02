@@ -1,8 +1,9 @@
+import * as React from "react";
+import { Star, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowRight } from "lucide-react";
-
 import pumpImage from "@/assets/product-pump.jpg";
 import generatorImage from "@/assets/product-generator.jpg";
 import valvesImage from "@/assets/product-valves.jpg";
@@ -11,6 +12,8 @@ import propulsionImage from "@/assets/product-propulsion.jpg";
 import compressorImage from "@/assets/product-compressor.jpg";
 
 const FeaturedProducts = () => {
+  const navigate = useNavigate();
+
   const products = [
     {
       id: 1,
@@ -144,7 +147,7 @@ const FeaturedProducts = () => {
 
         {/* View All Products CTA */}
         <div className="text-center">
-          <Button variant="default" size="lg" className="group">
+          <Button variant="default" size="lg" className="group" onClick={() => navigate('/products')}>
             View All Products
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
