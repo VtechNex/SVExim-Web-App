@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -325,17 +325,15 @@ const Products = () => {
     },
   ];
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all categories");
+  const [selectedBrand, setSelectedBrand] = useState("all brands");
   const [visibleProducts, setVisibleProducts] = useState(8);
-  const productsToShow = allProducts.slice(0, visibleProducts);
-
-  const loadMore = () => {
-    setVisibleProducts(prev => Math.min(prev + 8, allProducts.length));
-  };
 
   const categories = [
     "All Categories",
     "Industrial Pumps",
-    "Power Generation", 
+    "Power Generation",
     "Valves & Controls",
     "Process Equipment",
     "Marine Equipment",
@@ -345,10 +343,39 @@ const Products = () => {
   const brands = [
     "All Brands",
     "SV Premium",
-    "SV Marine", 
+    "SV Marine",
     "SV Industrial",
     "SV Process"
   ];
+
+  // Filter products based on search term, category, and brand
+  const filteredProducts = allProducts.filter((product) => {
+    const matchesSearchTerm =
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.specs.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchesCategory =
+      selectedCategory === "all categories" ||
+      product.category.toLowerCase() === selectedCategory;
+
+    const matchesBrand =
+      selectedBrand === "all brands" || product.brand.toLowerCase() === selectedBrand;
+
+    return matchesSearchTerm && matchesCategory && matchesBrand;
+  });
+
+  const productsToShow = filteredProducts.slice(0, visibleProducts);
+
+  const loadMore = () => {
+    setVisibleProducts((prev) => Math.min(prev + 8, filteredProducts.length));
+  };
+
+  // Reset visible products when filters or search term change
+  useEffect(() => {
+    setVisibleProducts(8);
+  }, [searchTerm, selectedCategory, selectedBrand]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -371,11 +398,16 @@ const Products = () => {
               <Input 
                 placeholder="Search products..." 
                 className="pl-10"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
           <div className="flex gap-4 lg:justify-end">
-            <Select>
+            <Select
+              onValueChange={(value) => setSelectedCategory(value)}
+              value={selectedCategory}
+            >
               <SelectTrigger className="w-full lg:w-40">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
@@ -387,7 +419,10 @@ const Products = () => {
                 ))}
               </SelectContent>
             </Select>
-            <Select>
+            <Select
+              onValueChange={(value) => setSelectedBrand(value)}
+              value={selectedBrand}
+            >
               <SelectTrigger className="w-full lg:w-32">
                 <SelectValue placeholder="Brand" />
               </SelectTrigger>
@@ -405,7 +440,7 @@ const Products = () => {
         {/* Results Summary */}
         <div className="flex justify-between items-center mb-8 pb-4 border-b border-border">
           <p className="text-muted-foreground">
-            Showing {productsToShow.length} of {allProducts.length} products
+            Showing {productsToShow.length} of {filteredProducts.length} products
           </p>
           <Button variant="outline" size="sm">
             <Filter className="h-4 w-4 mr-2" />
@@ -486,7 +521,7 @@ const Products = () => {
 
         {/* Load More */}
         <div className="text-center mt-12">
-          {visibleProducts < allProducts.length ? (
+          {visibleProducts < filteredProducts.length ? (
             <Button variant="outline" size="lg" onClick={loadMore}>
               Load More Products
             </Button>
