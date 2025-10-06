@@ -24,6 +24,7 @@ const initialProducts = [
     status: "New",
     statusColor: "bg-accent",
     description: "High-performance marine diesel engine for commercial use.",
+    image: "",
   },
   {
     id: 2,
@@ -34,6 +35,7 @@ const initialProducts = [
     status: "Refurbished",
     statusColor: "bg-success",
     description: "Advanced navigation system for maritime vessels.",
+    image: "",
   },
 ];
 
@@ -49,6 +51,7 @@ const Products = () => {
     status: "New",
     statusColor: "bg-accent",
     description: "",
+    image: "",
   });
   const [isEditMode, setIsEditMode] = useState(false);
 
@@ -62,6 +65,7 @@ const Products = () => {
       status: "New",
       statusColor: "bg-accent",
       description: "",
+      image: "",
     });
     setIsEditMode(false);
   };
@@ -143,7 +147,15 @@ const Products = () => {
             <CardContent className="pt-6">
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="h-32 w-32 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <Package className="h-16 w-16 text-secondary" />
+                  {product.image ? (
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="h-32 w-32 rounded-lg object-cover"
+                    />
+                  ) : (
+                    <Package className="h-16 w-16 text-secondary" />
+                  )}
                 </div>
                 <div className="space-y-2 w-full">
                   <div className="flex items-center justify-between">
@@ -263,6 +275,28 @@ const Products = () => {
                 name="description"
                 value={formData.description}
                 onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <Label htmlFor="image">Product Image</Label>
+              <Input
+                id="image"
+                name="image"
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files[0];
+                  if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                      setFormData((prev) => ({
+                        ...prev,
+                        image: event.target?.result as string,
+                      }));
+                    };
+                    reader.readAsDataURL(file);
+                  }
+                }}
               />
             </div>
             <DialogFooter>
