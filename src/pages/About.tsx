@@ -54,15 +54,6 @@ const About = () => {
     },
   ];
 
-  const certifications = [
-    "ISO 9001:2015 Quality Management",
-    "ASME Certified Equipment",
-    "CE Marking Compliance", 
-    "Lloyd's Register Marine Approval",
-    "DNV GL Certification",
-    "API 6D Valve Certification"
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -189,24 +180,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Certifications */}
-        <div className="bg-muted/30 rounded-2xl p-8 md:p-12">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Certifications & Standards</h2>
-            <p className="text-muted-foreground">
-              Our commitment to quality is backed by international certifications and standards
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certifications.map((cert, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-background rounded-lg p-4">
-                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-foreground font-medium">{cert}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </main>
       
       <Footer />
