@@ -14,14 +14,39 @@ import {
 } from "@/components/ui/select";
 import { Search, Filter, Star, ArrowRight, CheckCircle } from "lucide-react";
 
+// Dialog
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription
+} from "@/components/ui/dialog";
 
- import pumpImage from "@/assets/product-pump.jpg";
- import generatorImage from "@/assets/product-generator.jpg";
- import valvesImage from "@/assets/product-valves.jpg";
- import heatExchangerImage from "@/assets/product-heat-exchanger.jpg";
- import propulsionImage from "@/assets/product-propulsion.jpg";
- import compressorImage from "@/assets/product-compressor.jpg";
+import { Textarea } from "@/components/ui/textarea";
+
+import pumpImage from "@/assets/product-pump.jpg";
+import generatorImage from "@/assets/product-generator.jpg";
+import valvesImage from "@/assets/product-valves.jpg";
+import heatExchangerImage from "@/assets/product-heat-exchanger.jpg";
+import propulsionImage from "@/assets/product-propulsion.jpg";
+import compressorImage from "@/assets/product-compressor.jpg";
+
 const Products = () => {
+  // --------------------------
+  //  QUOTE POPUP STATES
+  // --------------------------
+  const [openQuote, setOpenQuote] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleQuoteClick = (product) => {
+    setSelectedProduct(product);
+    setOpenQuote(true);
+  };
+
+  // --------------------------
+  //  PRODUCT LIST
+  // --------------------------
   const allProducts = [
     {
       id: 1,
@@ -325,6 +350,9 @@ const Products = () => {
     },
   ];
 
+  // --------------------------
+  //  FILTER STATES
+  // --------------------------
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all categories");
   const [selectedBrand, setSelectedBrand] = useState("all brands");
@@ -348,7 +376,7 @@ const Products = () => {
     "SV Process"
   ];
 
-  // Filter products based on search term, category, and brand
+  // Filters
   const filteredProducts = allProducts.filter((product) => {
     const matchesSearchTerm =
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -361,7 +389,8 @@ const Products = () => {
       product.category.toLowerCase() === selectedCategory;
 
     const matchesBrand =
-      selectedBrand === "all brands" || product.brand.toLowerCase() === selectedBrand;
+      selectedBrand === "all brands" ||
+      product.brand.toLowerCase() === selectedBrand;
 
     return matchesSearchTerm && matchesCategory && matchesBrand;
   });
@@ -372,15 +401,17 @@ const Products = () => {
     setVisibleProducts((prev) => Math.min(prev + 8, filteredProducts.length));
   };
 
-  // Reset visible products when filters or search term change
   useEffect(() => {
     setVisibleProducts(8);
   }, [searchTerm, selectedCategory, selectedBrand]);
 
+  // ----------------------------------------------------
+  //               UI STARTS HERE
+  // ----------------------------------------------------
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Page Header */}
         <div className="mb-12">
@@ -390,19 +421,20 @@ const Products = () => {
           </p>
         </div>
 
-        {/* Search and Filters */}
+        {/* Search + Filters */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-3">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-              <Input 
-                placeholder="Search products..." 
+              <Input
+                placeholder="Search products..."
                 className="pl-10"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
+
           <div className="flex gap-4 lg:justify-end">
             <Select
               onValueChange={(value) => setSelectedCategory(value)}
@@ -419,6 +451,7 @@ const Products = () => {
                 ))}
               </SelectContent>
             </Select>
+
             <Select
               onValueChange={(value) => setSelectedBrand(value)}
               value={selectedBrand}
@@ -437,17 +470,6 @@ const Products = () => {
           </div>
         </div>
 
-        {/* Results Summary */}
-        <div className="flex justify-between items-center mb-8 pb-4 border-b border-border">
-          <p className="text-muted-foreground">
-            Showing {productsToShow.length} of {filteredProducts.length} products
-          </p>
-          <Button variant="outline" size="sm">
-            <Filter className="h-4 w-4 mr-2" />
-            More Filters
-          </Button>
-        </div>
-
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {productsToShow.map((product) => (
@@ -461,8 +483,7 @@ const Products = () => {
                   alt={product.name}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 <div className="absolute top-3 left-3 flex flex-col gap-2">
                   <Badge variant="secondary" className="text-xs">
                     {product.brand}
@@ -477,13 +498,13 @@ const Products = () => {
                     </Badge>
                   )}
                 </div>
-                
+
                 <div className="absolute top-3 right-3 flex items-center space-x-1 bg-white/90 rounded-full px-2 py-1">
                   <Star className="h-3 w-3 text-yellow-500 fill-current" />
                   <span className="text-xs font-medium">{product.rating}</span>
                 </div>
               </div>
-              
+
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div>
@@ -494,20 +515,23 @@ const Products = () => {
                       {product.name}
                     </h3>
                   </div>
-                  
+
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {product.specs}
                   </p>
-                  
+
                   <div className="flex items-center justify-between pt-2">
                     <div className="text-sm font-medium text-primary">
                       Request Quote
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+
+                    {/* BLUE BUTTON FOR BOTH: Request Quote & Notify Me */}
+                    <Button
+                      variant="default"
+                      size="sm"
                       className="group/btn"
                       disabled={!product.inStock}
+                      onClick={() => handleQuoteClick(product)}
                     >
                       {product.inStock ? "Request Quote" : "Notify Me"}
                       <ArrowRight className="ml-1 h-3 w-3 group-hover/btn:translate-x-1 transition-transform" />
@@ -533,10 +557,90 @@ const Products = () => {
           )}
         </div>
       </main>
-      
+
       <Footer />
+
+      {/* ----------------------------------------------------
+                     REQUEST QUOTE  MODAL
+      ---------------------------------------------------- */}
+      <Dialog open={openQuote} onOpenChange={setOpenQuote}>
+        <DialogContent className="bg-white text-black rounded-xl max-w-md w-full p-5 max-h-[80vh] overflow-y-auto border border-blue-200 shadow-xl">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-semibold text-blue-700">
+              Get a Quote
+            </DialogTitle>
+            <DialogDescription className="text-gray-600">
+              Fill in your details and we will contact you soon.
+            </DialogDescription>
+          </DialogHeader>
+
+          <form className="space-y-4 mt-3">
+            {/* Product Name */}
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">Product</label>
+              <Input
+                value={selectedProduct?.name || ""}
+                readOnly
+                className="bg-gray-100"
+              />
+            </div>
+
+            {/* Full Name */}
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Full Name
+              </label>
+              <Input
+                type="text"
+                placeholder="Enter full name"
+                className="border-gray-300"
+              />
+            </div>
+
+            {/* Email */}
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Email
+              </label>
+              <Input
+                type="email"
+                placeholder="example@mail.com"
+                className="border-gray-300"
+              />
+            </div>
+
+            {/* Phone */}
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Phone
+              </label>
+              <Input
+                type="text"
+                placeholder="+91 9876543210"
+                className="border-gray-300"
+              />
+            </div>
+
+            {/* Message */}
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Message / Details
+              </label>
+              <Textarea
+                rows={3}
+                placeholder="Describe your requirements..."
+                className="border-gray-300"
+              />
+            </div>
+
+            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-base">
+              Submit
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
 
-export default Products;
+export default Products;
