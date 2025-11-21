@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-// Import Dialog components
+// Dialog Components
 import {
   Dialog,
   DialogTrigger,
@@ -15,12 +16,13 @@ import {
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "About Us", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: t("header.navigation.home"), href: "/" },
+    { name: t("header.navigation.products"), href: "/products" },
+    { name: t("header.navigation.about"), href: "/about" },
+    { name: t("header.navigation.contact"), href: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -33,15 +35,19 @@ const Header = () => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4 text-primary" />
-              <span className="text-muted-foreground">+91 98765 43210</span>
+              <span className="text-muted-foreground">
+                {t("header.contactInfo.phone")}
+              </span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4 text-primary" />
-              <span className="text-muted-foreground">info@svexim.com</span>
+              <span className="text-muted-foreground">
+                {t("header.contactInfo.email")}
+              </span>
             </div>
           </div>
           <div className="hidden md:block text-muted-foreground">
-            Serving Industrial & Marine Equipment Since 2005
+            {t("header.contactInfo.servingSince")}
           </div>
         </div>
       </div>
@@ -55,8 +61,12 @@ const Header = () => {
               <span className="text-primary-foreground font-bold text-xl">SV</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-primary">SV Exim</h1>
-              <p className="text-xs text-muted-foreground">Industrial & Marine Equipment</p>
+              <h1 className="text-xl font-bold text-primary">
+                {t("common.companyName")}
+              </h1>
+              <p className="text-xs text-muted-foreground">
+                {t("common.companyTagline")}
+              </p>
             </div>
           </Link>
 
@@ -64,7 +74,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 to={item.href}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   isActive(item.href)
@@ -76,84 +86,100 @@ const Header = () => {
               </Link>
             ))}
 
-            {/* ➤ Desktop Get Quote Button with Dialog */}
+            {/* Desktop Get Quote */}
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="default" size="sm">
-                  Get Quote
+                  {t("common.getQuote")}
                 </Button>
               </DialogTrigger>
 
               <DialogContent className="bg-white text-black rounded-xl max-w-md w-full p-5 border border-blue-200 shadow-xl max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
                   <DialogTitle className="text-xl font-semibold text-blue-700">
-                    Get a Quote
+                    {t("quoteForm.title")}
                   </DialogTitle>
                 </DialogHeader>
 
                 {/* FORM */}
                 <form className="space-y-4 mt-3">
+
+                  {/* Full Name */}
                   <div className="space-y-1">
-                    <label className="block text-sm font-medium text-gray-700">Full Name</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      {t("quoteForm.form.fullName")}
+                    </label>
                     <input
                       type="text"
-                      className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Enter full name"
+                      className="w-full h-10 px-3 border border-gray-300 rounded-lg"
+                      placeholder={t("quoteForm.form.placeholders.fullName")}
                     />
                   </div>
 
+                  {/* Email */}
                   <div className="space-y-1">
-                    <label className="block text-sm font-medium text-gray-700">Email</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      {t("quoteForm.form.email")}
+                    </label>
                     <input
                       type="email"
-                      className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="example@mail.com"
+                      className="w-full h-10 px-3 border border-gray-300 rounded-lg"
+                      placeholder={t("quoteForm.form.placeholders.email")}
                     />
                   </div>
 
+                  {/* Phone */}
                   <div className="space-y-1">
-                    <label className="block text-sm font-medium text-gray-700">Phone</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      {t("quoteForm.form.phone")}
+                    </label>
                     <input
                       type="text"
-                      className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="+91 9876543210"
+                      className="w-full h-10 px-3 border border-gray-300 rounded-lg"
+                      placeholder={t("quoteForm.form.placeholders.phone")}
                     />
                   </div>
 
+                  {/* Location */}
                   <div className="space-y-1">
-                    <label className="block text-sm font-medium text-gray-700">Location</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      {t("quoteForm.form.location")}
+                    </label>
                     <input
                       type="text"
-                      className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="City, Country"
+                      className="w-full h-10 px-3 border border-gray-300 rounded-lg"
+                      placeholder={t("quoteForm.form.placeholders.location")}
                     />
                   </div>
 
+                  {/* Budget */}
                   <div className="space-y-1">
-                    <label className="block text-sm font-medium text-gray-700">Budget Range</label>
-                    <select className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                      <option>Select budget</option>
-                      <option>$1,000 - $5,000</option>
-                      <option>$5,000 - $10,000</option>
-                      <option>$10,000 - $50,000</option>
-                      <option>$50,000+</option>
+                    <label className="block text-sm font-medium text-gray-700">
+                      {t("quoteForm.form.budget")}
+                    </label>
+                    <select className="w-full h-10 px-3 border border-gray-300 rounded-lg">
+                      <option>{t("quoteForm.form.budgetOptions.select")}</option>
+                      <option>{t("quoteForm.form.budgetOptions.range1")}</option>
+                      <option>{t("quoteForm.form.budgetOptions.range2")}</option>
+                      <option>{t("quoteForm.form.budgetOptions.range3")}</option>
+                      <option>{t("quoteForm.form.budgetOptions.range4")}</option>
                     </select>
                   </div>
 
+                  {/* Message */}
                   <div className="space-y-1">
-                    <label className="block text-sm font-medium text-gray-700">Message / Details</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      {t("quoteForm.form.message")}
+                    </label>
                     <textarea
                       rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Describe your requirements..."
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                      placeholder={t("quoteForm.form.placeholders.message")}
                     ></textarea>
                   </div>
 
-                  <Button
-                    type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-base"
-                  >
-                    Submit
+                  <Button className="w-full bg-blue-600 text-white py-2.5 rounded-lg">
+                    {t("common.submit")}
                   </Button>
                 </form>
               </DialogContent>
@@ -175,7 +201,7 @@ const Header = () => {
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   to={item.href}
                   className={`text-base font-medium transition-colors duration-200 ${
                     isActive(item.href) ? "text-primary" : "text-muted-foreground hover:text-primary"
@@ -186,56 +212,60 @@ const Header = () => {
                 </Link>
               ))}
 
-              {/* Mobile: Get Quote Button + Dialog */}
+              {/* Mobile Get Quote */}
               <Dialog>
                 <DialogTrigger asChild>
                   <Button variant="default" size="sm" className="self-start">
-                    Get Quote
+                    {t("common.getQuote")}
                   </Button>
                 </DialogTrigger>
 
-                {/* Same form reused */}
                 <DialogContent className="bg-white text-black rounded-xl max-w-md w-full p-5 border border-blue-200 shadow-xl max-h-[80vh] overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle className="text-xl font-semibold text-blue-700">
-                      Get a Quote
+                      {t("quoteForm.title")}
                     </DialogTitle>
                   </DialogHeader>
 
                   <form className="space-y-4 mt-3">
                     {/* Name */}
                     <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">Full Name</label>
+                      <label className="block text-sm font-medium text-gray-700">
+                        {t("quoteForm.form.fullName")}
+                      </label>
                       <input
                         type="text"
                         className="w-full h-10 px-3 border border-gray-300 rounded-lg"
-                        placeholder="Enter full name"
+                        placeholder={t("quoteForm.form.placeholders.fullName")}
                       />
                     </div>
 
                     {/* Email */}
                     <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">Email</label>
+                      <label className="block text-sm font-medium text-gray-700">
+                        {t("quoteForm.form.email")}
+                      </label>
                       <input
                         type="email"
                         className="w-full h-10 px-3 border border-gray-300 rounded-lg"
-                        placeholder="example@mail.com"
+                        placeholder={t("quoteForm.form.placeholders.email")}
                       />
                     </div>
 
                     {/* Phone */}
                     <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">Phone</label>
+                      <label className="block text-sm font-medium text-gray-700">
+                        {t("quoteForm.form.phone")}
+                      </label>
                       <input
                         type="text"
                         className="w-full h-10 px-3 border border-gray-300 rounded-lg"
-                        placeholder="+91 9876543210"
+                        placeholder={t("quoteForm.form.placeholders.phone")}
                       />
                     </div>
 
-                    {/* Submit */}
                     <Button className="w-full bg-blue-600 text-white py-2.5 rounded-lg">
-                      Submit
+                      {t("common.submit")}
                     </Button>
                   </form>
                 </DialogContent>

@@ -1,0 +1,291 @@
+{
+  "common": {
+    "companyName": "SV Exim",
+    "companyTagline": "Industrie- und Marineausrüstung",
+    "getQuote": "Angebot Einholen",
+    "submit": "Absenden",
+    "viewProducts": "Produkte Anzeigen",
+    "loading": "Lädt...",
+    "success": "Erfolg!",
+    "error": "Fehler!",
+    "readMore": "Mehr Lesen",
+    "learnMore": "Mehr Erfahren",
+    "contactUs": "Kontaktieren Sie Uns",
+    "sendMessage": "Nachricht Senden",
+    "requestQuote": "Angebot Anfordern",
+    "notifyMe": "Benachrichtigen Sie Mich",
+    "inStock": "Auf Lager",
+    "outOfStock": "Nicht Auf Lager",
+    "loadMore": "Mehr Laden",
+    "noMoreProducts": "Keine weiteren Produkte zum Laden"
+  },
+  "header": {
+    "navigation": {
+      "home": "Startseite",
+      "products": "Produkte",
+      "about": "Über Uns",
+      "contact": "Kontakt"
+    },
+    "contactInfo": {
+      "phone": "+91 98765 43210",
+      "email": "info@svexim.com",
+      "servingSince": "Bereits seit 2005 im Dienst der Industrie- und Marineausrüstung"
+    }
+  },
+  "footer": {
+    "description": "Führender Anbieter von Industrie- und Marineausrüstung, der Kunden weltweit seit 2005 mit Qualitätsprodukten und zuverlässigem Service versorgt.",
+    "quickLinks": "Schnelllinks",
+    "contactInfo": "Kontaktinformationen",
+    "businessHours": "Geschäftszeiten",
+    "hours": {
+      "weekdays": "Mo - Fr: 9:00 - 18:00",
+      "saturday": "Samstag: 9:00 - 13:00",
+      "sunday": "Sonntag: Geschlossen"
+    },
+    "copyright": "© 2024 SV Exim. Alle Rechte vorbehalten.",
+    "tagline": "Mit Präzision für industrielle Exzellenz gebaut"
+  },
+  "hero": {
+    "title": "Exzellenz in Industrie- und Marineausrüstung",
+    "subtitle": "Vertrauenswürdiger Anbieter von Premium-Industrie- und Marineausrüstung, der weltweite Kunden seit 2005 mit Qualität, Zuverlässigkeit und außergewöhnlichem Service versorgt.",
+    "getQuoteNow": "Jetzt Angebot Einholen",
+    "stats": {
+      "yearsExperience": "Jahre Erfahrung",
+      "countriesServed": "Bediente Länder",
+      "qualityAssured": "Qualität Zugesichert"
+    }
+  },
+  "productCategories": {
+    "title": "Unsere Produktkategorien",
+    "subtitle": "Umfassende Palette an Industrie- und Marineausrüstung für alle Ihre betrieblichen Anforderungen",
+    "categories": {
+      "industrialPumps": "Industriepumpen",
+      "marineEngines": "Schiffsmotoren",
+      "powerGeneration": "Stromerzeugung",
+      "marineHardware": "Marinehardware",
+      "industrialValves": "Industrieventile",
+      "processEquipment": "Prozessausrüstung"
+    },
+    "descriptions": {
+      "industrialPumps": "Zentrifugal-, Zahnrad- und Tauchpumpen für verschiedene Anwendungen",
+      "marineEngines": "Hochleistungs-Dieselmotoren für Schiffe",
+      "powerGeneration": "Generatoren, Lichtmaschinen und Stromverteilungssysteme",
+      "marineHardware": "Anker, Ketten, Winden und Decksausrüstung",
+      "industrialValves": "Kugelhähne, Absperrschieber und Steuerungssysteme",
+      "processEquipment": "Wärmetauscher, Abscheider und Filtersysteme"
+    }
+  },
+  "featuredProducts": {
+    "title": "Ausgewählte Produkte",
+    "subtitle": "Entdecken Sie unsere meistverkauften Industrie- und Marineausrüstungen, die von Kunden weltweit vertraut werden",
+    "viewAllProducts": "Alle Produkte Anzeigen",
+    "products": {
+      "centrifugalPump": "Zentrifugal-Industriepumpe",
+      "marineGenerator": "Marine-Dieselgeneratorsatz",
+      "ballValves": "Industrieller Kugelhahn-Satz",
+      "heatExchanger": "Wärmetauscher-Einheit",
+      "propulsionSystem": "Marines Antriebssystem",
+      "airCompressor": "Industrieller Luftkompressor"
+    },
+    "categories": {
+      "industrialPumps": "Industriepumpen",
+      "powerGeneration": "Stromerzeugung",
+      "valvesControls": "Ventile & Steuerungen",
+      "processEquipment": "Prozessausrüstung",
+      "marineEquipment": "Marineausrüstung",
+      "compressors": "Kompressoren"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Warum SV Exim Wählen",
+    "subtitle": "Ihr vertrauenswürdiger Partner für Industrie- und Marineausrüstung mit unübertroffener Qualität und Service",
+    "features": {
+      "quality": "Qualitätssicherung",
+      "delivery": "Schnelle Lieferung",
+      "global": "Globale Reichweite",
+      "expertise": "Branchenexpertise",
+      "support": "24/7 Support"
+    },
+    "descriptions": {
+      "quality": "Alle Produkte durchlaufen strenge Qualitätstests und Qualitätssicherungsprozesse",
+      "delivery": "Schnelle Bearbeitungszeiten mit effizienten globalen Versandnetzwerken",
+      "global": "Kunden in 100+ Ländern mit lokalem Support und Service versorgt",
+      "expertise": "10+ Jahre Expertise in der Lieferung von Industrie- und Marineausrüstung",
+      "support": "Rund-um-die-Uhr-Kundensupport und technische Unterstützung"
+    },
+    "stats": {
+      "productsDelivered": "Gelieferte Produkte",
+      "positiveFeedback": "Positives Feedback",
+      "countriesServed": "Bediente Länder",
+      "yearsExperience": "Jahre Erfahrung",
+      "satisfiedClients": "Zufriedene Kunden"
+    },
+    "trackRecord": "Unsere Erfolgsbilanz",
+    "numbersSpeak": "Zahlen, die für unser Engagement für Exzellenz sprechen"
+  },
+  "about": {
+    "title": "Über SV Exim",
+    "subtitle": "Seit fast zwei Jahrzehnten sind wir der vertrauenswürdige Partner für Industrie- und Marineausrüstung und bedienen Kunden weltweit mit unerschütterlichem Engagement für Qualität und Exzellenz.",
+    "ourStory": "Unsere Geschichte",
+    "storyContent": {
+      "p1": "Gegründet im Jahr 2005 im Industriezentrum von Bhavnagar, Gujarat, begann SV Exim als Vision, hochwertige Industrieausrüstung für den wachsenden Fertigungssektor in Indien bereitzustellen. Was als kleiner Betrieb begann, ist zu einem weltweit anerkannten Anbieter von Industrie- und Marineausrüstung geworden.",
+      "p2": "Unsere Reise war geprägt von kontinuierlichem Wachstum, strategischer Expansion und unerschütterlichem Engagement für Kundenzufriedenheit. Heute bedienen wir Kunden in über 50 Ländern, von kleinen Betrieben bis hin zu großen multinationalen Konzernen.",
+      "p3": "Mit über 5000 erfolgreichen Lieferungen und einer Kundenzufriedenheitsrate von 99,8% haben wir unseren Ruf auf qualitativ hochwertigen Produkten, zuverlässigem Service und technischer Expertise aufgebaut, auf die sich unsere Kunden verlassen können."
+    },
+    "mission": "Unsere Mission",
+    "missionContent": "Weltklasse-Lösungen für Industrie- und Marineausrüstung bereitzustellen, die es unseren Kunden ermöglichen, operative Exzellenz und nachhaltiges Wachstum zu erreichen.",
+    "vision": "Unsere Vision",
+    "visionContent": "Der globale Marktführer in der Lieferung von Industrie- und Marineausrüstung zu sein, bekannt für Innovation, Zuverlässigkeit und außergewöhnliche Kundenpartnerschaften.",
+    "ourJourney": "Unsere Reise",
+    "values": "Unsere Werte",
+    "milestones": {
+      "2005": {
+        "year": "2005",
+        "title": "Unternehmen Gegründet",
+        "description": "Beginn als kleiner Anbieter von Industrieausrüstung in Bhavnagar"
+      },
+      "2008": {
+        "year": "2008",
+        "title": "Marineabteilung",
+        "description": "Erweiterung in Marineausrüstung und Offshore-Lösungen"
+      },
+      "2012": {
+        "year": "2012",
+        "title": "Internationale Expansion",
+        "description": "Beginn der Kundenbetreuung im Nahen Osten und Südostasien"
+      },
+      "2016": {
+        "year": "2016",
+        "title": "Serviceabteilung Gestartet",
+        "description": "Einführung dedizierter Wartungs-, Reparatur- und Vor-Ort-Inspektionsdienste"
+      },
+      "2020": {
+        "year": "2020",
+        "title": "Digitale Transformation",
+        "description": "Start der Online-Plattform und digitalen Kundenbetreuung"
+      },
+      "2024": {
+        "year": "2024",
+        "title": "Globale Reichweite",
+        "description": "Jetzt 50+ Länder mit 5000+ erfolgreichen Lieferungen bedient"
+      }
+    },
+    "valuesList": {
+      "quality": {
+        "title": "Qualität Zuerst",
+        "description": "Jedes Produkt durchläuft strenge Tests und erfüllt internationale Standards"
+      },
+      "customer": {
+        "title": "Kundenfokus",
+        "description": "Aufbau langfristiger Beziehungen durch außergewöhnlichen Service und Support"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Kontinuierliche Adoption neuer Technologien und Verbesserung unserer Prozesse"
+      },
+      "integrity": {
+        "title": "Integrität",
+        "description": "Transparente Geschäftspraktiken und ehrliche Kommunikation mit allen Stakeholdern"
+      }
+    }
+  },
+  "contact": {
+    "title": "Kontaktieren Sie Uns",
+    "subtitle": "Bereit, Ihre Anforderungen an Industrie- und Marineausrüstung zu besprechen? Unser Expertenteam ist hier, um Ihnen zu helfen, die perfekten Lösungen für Ihre Anforderungen zu finden.",
+    "sendMessageTitle": "Senden Sie Uns Eine Nachricht",
+    "form": {
+      "fullName": "Vollständiger Name",
+      "company": "Unternehmen",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "inquiryType": "Anfragetyp",
+      "subject": "Betreff",
+      "message": "Nachricht",
+      "placeholders": {
+        "fullName": "Geben Sie Ihren vollständigen Namen ein",
+        "company": "Ihr Firmenname",
+        "email": "Geben Sie Ihre E-Mail ein",
+        "phone": "Geben Sie Ihre Telefonnummer ein",
+        "subject": "Kurzer Betreff Ihrer Anfrage",
+        "message": "Bitte beschreiben Sie Ihre Anforderungen im Detail..."
+      },
+      "inquiryTypes": {
+        "quote": "Angebot Anfordern",
+        "productInfo": "Produktinformation",
+        "technicalSupport": "Technischer Support",
+        "partnership": "Partnerschaftsmöglichkeit",
+        "other": "Andere"
+      }
+    },
+    "contactInfo": {
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "address": "Adresse",
+      "businessHours": "Geschäftszeiten"
+    },
+    "immediateAssistance": {
+      "title": "Benötigen Sie Sofortige Hilfe?",
+      "description": "Für dringende Anfragen oder technischen Support rufen Sie uns direkt an",
+      "callNow": "Jetzt Anrufen"
+    },
+    "ourLocation": "Unser Standort",
+    "openInMaps": "In Google Maps Öffnen"
+  },
+  "products": {
+    "title": "Unsere Produkte",
+    "subtitle": "Umfassende Palette an Industrie- und Marineausrüstung",
+    "searchPlaceholder": "Produkte durchsuchen...",
+    "filters": {
+      "category": "Kategorie",
+      "brand": "Marke",
+      "allCategories": "Alle Kategorien",
+      "allBrands": "Alle Marken"
+    },
+    "categories": {
+      "industrialPumps": "Industriepumpen",
+      "powerGeneration": "Stromerzeugung",
+      "valvesControls": "Ventile & Steuerungen",
+      "processEquipment": "Prozessausrüstung",
+      "marineEquipment": "Marineausrüstung",
+      "compressors": "Kompressoren"
+    },
+    "brands": {
+      "premium": "SV Premium",
+      "marine": "SV Marine",
+      "industrial": "SV Industrial",
+      "process": "SV Process"
+    }
+  },
+  "quoteForm": {
+    "title": "Angebot Einholen",
+    "description": "Füllen Sie Ihre Daten aus und wir werden Sie bald kontaktieren.",
+    "form": {
+      "product": "Produkt",
+      "fullName": "Vollständiger Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "location": "Standort",
+      "budget": "Budgetbereich",
+      "message": "Nachricht / Details",
+      "placeholders": {
+        "fullName": "Vollständigen Namen eingeben",
+        "email": "beispiel@mail.com",
+        "phone": "+91 9876543210",
+        "location": "Stadt, Land",
+        "message": "Beschreiben Sie Ihre Anforderungen..."
+      },
+      "budgetOptions": {
+        "select": "Budget auswählen",
+        "range1": "$1,000 - $5,000",
+        "range2": "$5,000 - $10,000",
+        "range3": "$10,000 - $50,000",
+        "range4": "$50,000+"
+      }
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Hoppla! Seite nicht gefunden",
+    "returnHome": "Zurück zur Startseite"
+  }
+}

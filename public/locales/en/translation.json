@@ -1,0 +1,291 @@
+{
+  "common": {
+    "companyName": "SV Exim",
+    "companyTagline": "Industrial & Marine Equipment",
+    "getQuote": "Get Quote",
+    "submit": "Submit",
+    "viewProducts": "View Products",
+    "loading": "Loading...",
+    "success": "Success!",
+    "error": "Error!",
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "sendMessage": "Send Message",
+    "requestQuote": "Request Quote",
+    "notifyMe": "Notify Me",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "loadMore": "Load More",
+    "noMoreProducts": "No more products to load"
+  },
+  "header": {
+    "navigation": {
+      "home": "Home",
+      "products": "Products",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "contactInfo": {
+      "phone": "+91 98765 43210",
+      "email": "info@svexim.com",
+      "servingSince": "Serving Industrial & Marine Equipment Since 2005"
+    }
+  },
+  "footer": {
+    "description": "Leading supplier of industrial and marine equipment, serving clients globally with quality products and reliable service since 2005.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "businessHours": "Business Hours",
+    "hours": {
+      "weekdays": "Mon - Fri: 9:00 AM - 6:00 PM",
+      "saturday": "Saturday: 9:00 AM - 1:00 PM",
+      "sunday": "Sunday: Closed"
+    },
+    "copyright": "© 2024 SV Exim. All rights reserved.",
+    "tagline": "Built with precision for industrial excellence"
+  },
+  "hero": {
+    "title": "Industrial & Marine Equipment Excellence",
+    "subtitle": "Trusted supplier of premium industrial and marine equipment serving global clients with quality, reliability, and exceptional service since 2005.",
+    "getQuoteNow": "Get Quote Now",
+    "stats": {
+      "yearsExperience": "Years Experience",
+      "countriesServed": "Countries Served",
+      "qualityAssured": "Quality Assured"
+    }
+  },
+  "productCategories": {
+    "title": "Our Product Categories",
+    "subtitle": "Comprehensive range of industrial and marine equipment to meet all your operational needs",
+    "categories": {
+      "industrialPumps": "Industrial Pumps",
+      "marineEngines": "Marine Engines",
+      "powerGeneration": "Power Generation",
+      "marineHardware": "Marine Hardware",
+      "industrialValves": "Industrial Valves",
+      "processEquipment": "Process Equipment"
+    },
+    "descriptions": {
+      "industrialPumps": "Centrifugal, gear, and submersible pumps for various applications",
+      "marineEngines": "High-performance diesel engines for marine vessels",
+      "powerGeneration": "Generators, alternators, and power distribution systems",
+      "marineHardware": "Anchors, chains, winches, and deck equipment",
+      "industrialValves": "Ball valves, gate valves, and control systems",
+      "processEquipment": "Heat exchangers, separators, and filtration systems"
+    }
+  },
+  "featuredProducts": {
+    "title": "Featured Products",
+    "subtitle": "Discover our best-selling industrial and marine equipment, trusted by clients worldwide",
+    "viewAllProducts": "View All Products",
+    "products": {
+      "centrifugalPump": "Centrifugal Industrial Pump",
+      "marineGenerator": "Marine Diesel Generator Set",
+      "ballValves": "Industrial Ball Valve Set",
+      "heatExchanger": "Heat Exchanger Unit",
+      "propulsionSystem": "Marine Propulsion System",
+      "airCompressor": "Industrial Air Compressor"
+    },
+    "categories": {
+      "industrialPumps": "Industrial Pumps",
+      "powerGeneration": "Power Generation",
+      "valvesControls": "Valves & Controls",
+      "processEquipment": "Process Equipment",
+      "marineEquipment": "Marine Equipment",
+      "compressors": "Compressors"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Why Choose SV Exim",
+    "subtitle": "Your trusted partner for industrial and marine equipment with unmatched quality and service",
+    "features": {
+      "quality": "Quality Assurance",
+      "delivery": "Fast Delivery",
+      "global": "Global Reach",
+      "expertise": "Industry Expertise",
+      "support": "24/7 Support"
+    },
+    "descriptions": {
+      "quality": "All products undergo rigorous quality testing and quality assurance processes",
+      "delivery": "Quick turnaround times with efficient global shipping networks",
+      "global": "Serving clients in 100+ countries with local support and service",
+      "expertise": "10+ years of expertise in industrial and marine equipment supply",
+      "support": "Round-the-clock customer support and technical assistance"
+    },
+    "stats": {
+      "productsDelivered": "Products Delivered",
+      "positiveFeedback": "Positive Feedback",
+      "countriesServed": "Countries Served",
+      "yearsExperience": "Years Experience",
+      "satisfiedClients": "Satisfied Clients"
+    },
+    "trackRecord": "Our Track Record",
+    "numbersSpeak": "Numbers that speak for our commitment to excellence"
+  },
+  "about": {
+    "title": "About SV Exim",
+    "subtitle": "For nearly two decades, we've been the trusted partner for industrial and marine equipment, serving clients worldwide with unwavering commitment to quality and excellence.",
+    "ourStory": "Our Story",
+    "storyContent": {
+      "p1": "Founded in 2005 in the industrial hub of Bhavnagar, Gujarat, SV Exim began as a vision to provide high-quality industrial equipment to the growing manufacturing sector in India. What started as a small operation has grown into a globally recognized supplier of industrial and marine equipment.",
+      "p2": "Our journey has been marked by continuous growth, strategic expansion, and an unwavering commitment to customer satisfaction. Today, we serve clients across 50+ countries, from small-scale operations to large multinational corporations.",
+      "p3": "With over 5000 successful deliveries and a customer satisfaction rate of 99.8%, we've built our reputation on quality products, reliable service, and technical expertise that our clients can depend on."
+    },
+    "mission": "Our Mission",
+    "missionContent": "To provide world-class industrial and marine equipment solutions that enable our clients to achieve operational excellence and sustainable growth.",
+    "vision": "Our Vision",
+    "visionContent": "To be the global leader in industrial and marine equipment supply, known for innovation, reliability, and exceptional customer partnerships.",
+    "ourJourney": "Our Journey",
+    "values": "Our Values",
+    "milestones": {
+      "2005": {
+        "year": "2005",
+        "title": "Company Founded",
+        "description": "Started as a small industrial equipment supplier in Bhavnagar"
+      },
+      "2008": {
+        "year": "2008",
+        "title": "Marine Division",
+        "description": "Expanded into marine equipment and offshore solutions"
+      },
+      "2012": {
+        "year": "2012",
+        "title": "International Expansion",
+        "description": "Started serving clients in Middle East and Southeast Asia"
+      },
+      "2016": {
+        "year": "2016",
+        "title": "Service Division Launch",
+        "description": "Introduced dedicated maintenance, repair, and on-site inspection services"
+      },
+      "2020": {
+        "year": "2020",
+        "title": "Digital Transformation",
+        "description": "Launched online platform and digital customer service"
+      },
+      "2024": {
+        "year": "2024",
+        "title": "Global Reach",
+        "description": "Now serving 50+ countries with 5000+ successful deliveries"
+      }
+    },
+    "valuesList": {
+      "quality": {
+        "title": "Quality First",
+        "description": "Every product undergoes rigorous testing and meets international standards"
+      },
+      "customer": {
+        "title": "Customer Focus",
+        "description": "Building long-term relationships through exceptional service and support"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Continuously adopting new technologies and improving our processes"
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "Transparent business practices and honest communication with all stakeholders"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to discuss your industrial or marine equipment needs? Our expert team is here to help you find the perfect solutions for your requirements.",
+    "sendMessageTitle": "Send Us a Message",
+    "form": {
+      "fullName": "Full Name",
+      "company": "Company",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "inquiryType": "Inquiry Type",
+      "subject": "Subject",
+      "message": "Message",
+      "placeholders": {
+        "fullName": "Enter your full name",
+        "company": "Your company name",
+        "email": "Enter your email",
+        "phone": "Enter your phone number",
+        "subject": "Brief subject of your inquiry",
+        "message": "Please describe your requirements in detail..."
+      },
+      "inquiryTypes": {
+        "quote": "Request Quote",
+        "productInfo": "Product Information",
+        "technicalSupport": "Technical Support",
+        "partnership": "Partnership Opportunity",
+        "other": "Other"
+      }
+    },
+    "contactInfo": {
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "businessHours": "Business Hours"
+    },
+    "immediateAssistance": {
+      "title": "Need Immediate Assistance?",
+      "description": "For urgent inquiries or technical support, call us directly",
+      "callNow": "Call Now"
+    },
+    "ourLocation": "Our Location",
+    "openInMaps": "Open in Google Maps"
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Comprehensive range of industrial and marine equipment",
+    "searchPlaceholder": "Search products...",
+    "filters": {
+      "category": "Category",
+      "brand": "Brand",
+      "allCategories": "All Categories",
+      "allBrands": "All Brands"
+    },
+    "categories": {
+      "industrialPumps": "Industrial Pumps",
+      "powerGeneration": "Power Generation",
+      "valvesControls": "Valves & Controls",
+      "processEquipment": "Process Equipment",
+      "marineEquipment": "Marine Equipment",
+      "compressors": "Compressors"
+    },
+    "brands": {
+      "premium": "SV Premium",
+      "marine": "SV Marine",
+      "industrial": "SV Industrial",
+      "process": "SV Process"
+    }
+  },
+  "quoteForm": {
+    "title": "Get a Quote",
+    "description": "Fill in your details and we will contact you soon.",
+    "form": {
+      "product": "Product",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "budget": "Budget Range",
+      "message": "Message / Details",
+      "placeholders": {
+        "fullName": "Enter full name",
+        "email": "example@mail.com",
+        "phone": "+91 9876543210",
+        "location": "City, Country",
+        "message": "Describe your requirements..."
+      },
+      "budgetOptions": {
+        "select": "Select budget",
+        "range1": "$1,000 - $5,000",
+        "range2": "$5,000 - $10,000",
+        "range3": "$10,000 - $50,000",
+        "range4": "$50,000+"
+      }
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "returnHome": "Return to Home"
+  }
+}

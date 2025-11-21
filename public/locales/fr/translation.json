@@ -1,0 +1,291 @@
+{
+  "common": {
+    "companyName": "SV Exim",
+    "companyTagline": "Équipements Industriels et Maritimes",
+    "getQuote": "Obtenir un Devis",
+    "submit": "Soumettre",
+    "viewProducts": "Voir les Produits",
+    "loading": "Chargement...",
+    "success": "Succès!",
+    "error": "Erreur!",
+    "readMore": "Lire Plus",
+    "learnMore": "En Savoir Plus",
+    "contactUs": "Contactez-Nous",
+    "sendMessage": "Envoyer un Message",
+    "requestQuote": "Demander un Devis",
+    "notifyMe": "Me Prévenir",
+    "inStock": "En Stock",
+    "outOfStock": "Rupture de Stock",
+    "loadMore": "Charger Plus",
+    "noMoreProducts": "Plus de produits à charger"
+  },
+  "header": {
+    "navigation": {
+      "home": "Accueil",
+      "products": "Produits",
+      "about": "À Propos",
+      "contact": "Contact"
+    },
+    "contactInfo": {
+      "phone": "+91 98765 43210",
+      "email": "info@svexim.com",
+      "servingSince": "Au Service des Équipements Industriels et Maritimes Depuis 2005"
+    }
+  },
+  "footer": {
+    "description": "Fournisseur leader d'équipements industriels et maritimes, servant des clients mondiaux avec des produits de qualité et un service fiable depuis 2005.",
+    "quickLinks": "Liens Rapides",
+    "contactInfo": "Informations de Contact",
+    "businessHours": "Heures d'Ouverture",
+    "hours": {
+      "weekdays": "Lun - Ven: 9:00 - 18:00",
+      "saturday": "Samedi: 9:00 - 13:00",
+      "sunday": "Dimanche: Fermé"
+    },
+    "copyright": "© 2024 SV Exim. Tous droits réservés.",
+    "tagline": "Construit avec précision pour l'excellence industrielle"
+  },
+  "hero": {
+    "title": "Excellence en Équipements Industriels et Maritimes",
+    "subtitle": "Fournisseur de confiance d'équipements industriels et maritimes premium, servant des clients mondiaux avec qualité, fiabilité et service exceptionnel depuis 2005.",
+    "getQuoteNow": "Obtenir un Devis Maintenant",
+    "stats": {
+      "yearsExperience": "Années d'Expérience",
+      "countriesServed": "Pays Desservis",
+      "qualityAssured": "Qualité Assurée"
+    }
+  },
+  "productCategories": {
+    "title": "Nos Catégories de Produits",
+    "subtitle": "Gamme complète d'équipements industriels et maritimes pour répondre à tous vos besoins opérationnels",
+    "categories": {
+      "industrialPumps": "Pompes Industrielles",
+      "marineEngines": "Moteurs Marins",
+      "powerGeneration": "Production d'Énergie",
+      "marineHardware": "Quincaillerie Maritime",
+      "industrialValves": "Vannes Industrielles",
+      "processEquipment": "Équipements de Processus"
+    },
+    "descriptions": {
+      "industrialPumps": "Pompes centrifuges, à engrenages et submersibles pour diverses applications",
+      "marineEngines": "Moteurs diesel haute performance pour navires maritimes",
+      "powerGeneration": "Générateurs, alternateurs et systèmes de distribution d'énergie",
+      "marineHardware": "Ancres, chaînes, treuils et équipements de pont",
+      "industrialValves": "Vannes à boisseau, vannes à guillotine et systèmes de contrôle",
+      "processEquipment": "Échangeurs de chaleur, séparateurs et systèmes de filtration"
+    }
+  },
+  "featuredProducts": {
+    "title": "Produits en Vedette",
+    "subtitle": "Découvrez nos équipements industriels et maritimes les plus vendus, de confiance par les clients du monde entier",
+    "viewAllProducts": "Voir Tous les Produits",
+    "products": {
+      "centrifugalPump": "Pompe Industrielle Centrifuge",
+      "marineGenerator": "Groupe Électrogène Diesel Marin",
+      "ballValves": "Jeu de Vannes à Bille Industrielles",
+      "heatExchanger": "Unité d'Échangeur de Chaleur",
+      "propulsionSystem": "Système de Propulsion Marine",
+      "airCompressor": "Compresseur d'Air Industriel"
+    },
+    "categories": {
+      "industrialPumps": "Pompes Industrielles",
+      "powerGeneration": "Production d'Énergie",
+      "valvesControls": "Vannes et Contrôles",
+      "processEquipment": "Équipements de Processus",
+      "marineEquipment": "Équipements Maritimes",
+      "compressors": "Compresseurs"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Pourquoi Choisir SV Exim",
+    "subtitle": "Votre partenaire de confiance pour les équipements industriels et maritimes avec une qualité et un service inégalés",
+    "features": {
+      "quality": "Assurance Qualité",
+      "delivery": "Livraison Rapide",
+      "global": "Portée Mondiale",
+      "expertise": "Expertise Industrielle",
+      "support": "Support 24/7"
+    },
+    "descriptions": {
+      "quality": "Tous les produits subissent des tests de qualité rigoureux et des processus d'assurance qualité",
+      "delivery": "Délais de traitement rapides avec des réseaux d'expédition mondiaux efficaces",
+      "global": "Servir des clients dans 100+ pays avec support et service local",
+      "expertise": "10+ ans d'expertise dans la fourniture d'équipements industriels et maritimes",
+      "support": "Support client et assistance technique 24 heures sur 24"
+    },
+    "stats": {
+      "productsDelivered": "Produits Livrés",
+      "positiveFeedback": "Retour Positif",
+      "countriesServed": "Pays Desservis",
+      "yearsExperience": "Années d'Expérience",
+      "satisfiedClients": "Clients Satisfaits"
+    },
+    "trackRecord": "Notre Parcours",
+    "numbersSpeak": "Des chiffres qui parlent de notre engagement envers l'excellence"
+  },
+  "about": {
+    "title": "À Propos de SV Exim",
+    "subtitle": "Depuis près de deux décennies, nous sommes le partenaire de confiance pour les équipements industriels et maritimes, servant des clients du monde entier avec un engagement inébranlable envers la qualité et l'excellence.",
+    "ourStory": "Notre Histoire",
+    "storyContent": {
+      "p1": "Fondée en 2005 dans le centre industriel de Bhavnagar, Gujarat, SV Exim a commencé comme une vision pour fournir des équipements industriels de haute qualité au secteur manufacturier en croissance en Inde. Ce qui a commencé comme une petite opération est devenu un fournisseur mondialement reconnu d'équipements industriels et maritimes.",
+      "p2": "Notre parcours a été marqué par une croissance continue, une expansion stratégique et un engagement inébranlable envers la satisfaction client. Aujourd'hui, nous servons des clients dans plus de 50 pays, des petites opérations aux grandes multinationales.",
+      "p3": "Avec plus de 5000 livraisons réussies et un taux de satisfaction client de 99,8%, nous avons bâti notre réputation sur des produits de qualité, un service fiable et une expertise technique sur laquelle nos clients peuvent compter."
+    },
+    "mission": "Notre Mission",
+    "missionContent": "Fournir des solutions d'équipements industriels et maritimes de classe mondiale permettant à nos clients d'atteindre l'excellence opérationnelle et une croissance durable.",
+    "vision": "Notre Vision",
+    "visionContent": "Être le leader mondial de la fourniture d'équipements industriels et maritimes, reconnu pour l'innovation, la fiabilité et des partenariats clients exceptionnels.",
+    "ourJourney": "Notre Parcours",
+    "values": "Nos Valeurs",
+    "milestones": {
+      "2005": {
+        "year": "2005",
+        "title": "Entreprise Fondée",
+        "description": "Début en tant que petit fournisseur d'équipements industriels à Bhavnagar"
+      },
+      "2008": {
+        "year": "2008",
+        "title": "Division Maritime",
+        "description": "Expansion dans les équipements maritimes et les solutions offshore"
+      },
+      "2012": {
+        "year": "2012",
+        "title": "Expansion Internationale",
+        "description": "Début du service aux clients au Moyen-Orient et en Asie du Sud-Est"
+      },
+      "2016": {
+        "year": "2016",
+        "title": "Lancement Division Service",
+        "description": "Introduction de services dédiés de maintenance, réparation et inspection sur site"
+      },
+      "2020": {
+        "year": "2020",
+        "title": "Transformation Numérique",
+        "description": "Lancement de la plateforme en ligne et du service client numérique"
+      },
+      "2024": {
+        "year": "2024",
+        "title": "Portée Mondiale",
+        "description": "Desservant maintenant 50+ pays avec 5000+ livraisons réussies"
+      }
+    },
+    "valuesList": {
+      "quality": {
+        "title": "Qualité d'Abord",
+        "description": "Chaque produit subit des tests rigoureux et répond aux normes internationales"
+      },
+      "customer": {
+        "title": "Orientation Client",
+        "description": "Construire des relations à long terme grâce à un service et un support exceptionnels"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Adopter continuellement de nouvelles technologies et améliorer nos processus"
+      },
+      "integrity": {
+        "title": "Intégrité",
+        "description": "Pratiques commerciales transparentes et communication honnête avec toutes les parties prenantes"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Prêt à discuter de vos besoins en équipements industriels et maritimes ? Notre équipe d'experts est là pour vous aider à trouver les solutions parfaites pour vos besoins.",
+    "sendMessageTitle": "Envoyez-Nous un Message",
+    "form": {
+      "fullName": "Nom Complet",
+      "company": "Entreprise",
+      "email": "Adresse Email",
+      "phone": "Numéro de Téléphone",
+      "inquiryType": "Type de Demande",
+      "subject": "Sujet",
+      "message": "Message",
+      "placeholders": {
+        "fullName": "Entrez votre nom complet",
+        "company": "Nom de votre entreprise",
+        "email": "Entrez votre email",
+        "phone": "Entrez votre numéro de téléphone",
+        "subject": "Sujet bref de votre demande",
+        "message": "Veuillez décrire vos besoins en détail..."
+      },
+      "inquiryTypes": {
+        "quote": "Demande de Devis",
+        "productInfo": "Information Produit",
+        "technicalSupport": "Support Technique",
+        "partnership": "Opportunité de Partenariat",
+        "other": "Autre"
+      }
+    },
+    "contactInfo": {
+      "phone": "Téléphone",
+      "email": "Email",
+      "address": "Adresse",
+      "businessHours": "Heures d'Ouverture"
+    },
+    "immediateAssistance": {
+      "title": "Besoin d'Aide Immédiate ?",
+      "description": "Pour les demandes urgentes ou le support technique, appelez-nous directement",
+      "callNow": "Appeler Maintenant"
+    },
+    "ourLocation": "Notre Localisation",
+    "openInMaps": "Ouvrir dans Google Maps"
+  },
+  "products": {
+    "title": "Nos Produits",
+    "subtitle": "Gamme complète d'équipements industriels et maritimes",
+    "searchPlaceholder": "Rechercher des produits...",
+    "filters": {
+      "category": "Catégorie",
+      "brand": "Marque",
+      "allCategories": "Toutes les Catégories",
+      "allBrands": "Toutes les Marques"
+    },
+    "categories": {
+      "industrialPumps": "Pompes Industrielles",
+      "powerGeneration": "Production d'Énergie",
+      "valvesControls": "Vannes et Contrôles",
+      "processEquipment": "Équipements de Processus",
+      "marineEquipment": "Équipements Maritimes",
+      "compressors": "Compresseurs"
+    },
+    "brands": {
+      "premium": "SV Premium",
+      "marine": "SV Marine",
+      "industrial": "SV Industrial",
+      "process": "SV Process"
+    }
+  },
+  "quoteForm": {
+    "title": "Obtenir un Devis",
+    "description": "Remplissez vos coordonnées et nous vous contacterons bientôt.",
+    "form": {
+      "product": "Produit",
+      "fullName": "Nom Complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Localisation",
+      "budget": "Tranche Budgétaire",
+      "message": "Message / Détails",
+      "placeholders": {
+        "fullName": "Entrez le nom complet",
+        "email": "exemple@mail.com",
+        "phone": "+91 9876543210",
+        "location": "Ville, Pays",
+        "message": "Décrivez vos besoins..."
+      },
+      "budgetOptions": {
+        "select": "Sélectionnez le budget",
+        "range1": "$1,000 - $5,000",
+        "range2": "$5,000 - $10,000",
+        "range3": "$10,000 - $50,000",
+        "range4": "$50,000+"
+      }
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oups ! Page non trouvée",
+    "returnHome": "Retour à l'Accueil"
+  }
+}

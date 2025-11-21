@@ -1,0 +1,291 @@
+{
+  "common": {
+    "companyName": "SV Exim",
+    "companyTagline": "Attrezzature Industriali e Marine",
+    "getQuote": "Richiedi Preventivo",
+    "submit": "Invia",
+    "viewProducts": "Visualizza Prodotti",
+    "loading": "Caricamento...",
+    "success": "Successo!",
+    "error": "Errore!",
+    "readMore": "Leggi di Più",
+    "learnMore": "Scopri di Più",
+    "contactUs": "Contattaci",
+    "sendMessage": "Invia Messaggio",
+    "requestQuote": "Richiedi Preventivo",
+    "notifyMe": "Avvisami",
+    "inStock": "Disponibile",
+    "outOfStock": "Esaurito",
+    "loadMore": "Carica Altro",
+    "noMoreProducts": "Nessun altro prodotto da caricare"
+  },
+  "header": {
+    "navigation": {
+      "home": "Home",
+      "products": "Prodotti",
+      "about": "Chi Siamo",
+      "contact": "Contatti"
+    },
+    "contactInfo": {
+      "phone": "+91 98765 43210",
+      "email": "info@svexim.com",
+      "servingSince": "Al Servizio delle Attrezzature Industriali e Marine Dal 2005"
+    }
+  },
+  "footer": {
+    "description": "Fornitore leader di attrezzature industriali e marine, al servizio di clienti globali con prodotti di qualità e servizio affidabile dal 2005.",
+    "quickLinks": "Link Rapidi",
+    "contactInfo": "Informazioni di Contatto",
+    "businessHours": "Orari di Apertura",
+    "hours": {
+      "weekdays": "Lun - Ven: 9:00 - 18:00",
+      "saturday": "Sabato: 9:00 - 13:00",
+      "sunday": "Domenica: Chiuso"
+    },
+    "copyright": "© 2024 SV Exim. Tutti i diritti riservati.",
+    "tagline": "Costruito con precisione per l'eccellenza industriale"
+  },
+  "hero": {
+    "title": "Eccellenza in Attrezzature Industriali e Marine",
+    "subtitle": "Fornitore affidabile di attrezzature industriali e marine premium, al servizio di clienti globali con qualità, affidabilità e servizio eccezionale dal 2005.",
+    "getQuoteNow": "Richiedi Preventivo Ora",
+    "stats": {
+      "yearsExperience": "Anni di Esperienza",
+      "countriesServed": "Paesi Serviti",
+      "qualityAssured": "Qualità Garantita"
+    }
+  },
+  "productCategories": {
+    "title": "Le Nostre Categorie di Prodotti",
+    "subtitle": "Gamma completa di attrezzature industriali e marine per soddisfare tutte le vostre esigenze operative",
+    "categories": {
+      "industrialPumps": "Pompe Industriali",
+      "marineEngines": "Motori Marini",
+      "powerGeneration": "Generazione di Energia",
+      "marineHardware": "Componenti Marini",
+      "industrialValves": "Valvole Industriali",
+      "processEquipment": "Attrezzature di Processo"
+    },
+    "descriptions": {
+      "industrialPumps": "Pompe centrifughe, a ingranaggi e sommerse per varie applicazioni",
+      "marineEngines": "Motori diesel ad alte prestazioni per navi marine",
+      "powerGeneration": "Generatori, alternatori e sistemi di distribuzione energetica",
+      "marineHardware": "Ancore, catene, argani e attrezzature di ponte",
+      "industrialValves": "Valvole a sfera, valvole a saracinesca e sistemi di controllo",
+      "processEquipment": "Scambiatori di calore, separatori e sistemi di filtrazione"
+    }
+  },
+  "featuredProducts": {
+    "title": "Prodotti in Evidenza",
+    "subtitle": "Scopri le nostre attrezzature industriali e marine più vendute, affidate da clienti in tutto il mondo",
+    "viewAllProducts": "Visualizza Tutti i Prodotti",
+    "products": {
+      "centrifugalPump": "Pompa Industriale Centrifuga",
+      "marineGenerator": "Gruppo Elettrogeno Diesel Marino",
+      "ballValves": "Set di Valvole a Sfera Industriali",
+      "heatExchanger": "Unità Scambiatore di Calore",
+      "propulsionSystem": "Sistema di Propulsione Marina",
+      "airCompressor": "Compressore d'Aria Industriale"
+    },
+    "categories": {
+      "industrialPumps": "Pompe Industriali",
+      "powerGeneration": "Generazione di Energia",
+      "valvesControls": "Valvole e Controlli",
+      "processEquipment": "Attrezzature di Processo",
+      "marineEquipment": "Attrezzature Marine",
+      "compressors": "Compressori"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Perché Scegliere SV Exim",
+    "subtitle": "Il tuo partner affidabile per attrezzature industriali e marine con qualità e servizio insuperabili",
+    "features": {
+      "quality": "Garanzia di Qualità",
+      "delivery": "Consegna Veloce",
+      "global": "Portata Globale",
+      "expertise": "Competenza Settoriale",
+      "support": "Supporto 24/7"
+    },
+    "descriptions": {
+      "quality": "Tutti i prodotti subiscono rigorosi test di qualità e processi di garanzia della qualità",
+      "delivery": "Tempi di turnaround rapidi con efficienti reti di spedizione globali",
+      "global": "Serviamo clienti in 100+ paesi con supporto e servizio locale",
+      "expertise": "10+ anni di competenza nella fornitura di attrezzature industriali e marine",
+      "support": "Supporto clienti e assistenza tecnica 24 ore su 24"
+    },
+    "stats": {
+      "productsDelivered": "Prodotti Consegnati",
+      "positiveFeedback": "Feedback Positivo",
+      "countriesServed": "Paesi Serviti",
+      "yearsExperience": "Anni di Esperienza",
+      "satisfiedClients": "Clienti Soddisfatti"
+    },
+    "trackRecord": "La Nostra Storia",
+    "numbersSpeak": "Numeri che parlano del nostro impegno per l'eccellenza"
+  },
+  "about": {
+    "title": "Chi Siamo",
+    "subtitle": "Da quasi due decenni, siamo il partner affidabile per attrezzature industriali e marine, servendo clienti in tutto il mondo con un impegno incrollabile verso la qualità e l'eccellenza.",
+    "ourStory": "La Nostra Storia",
+    "storyContent": {
+      "p1": "Fondata nel 2005 nel polo industriale di Bhavnagar, Gujarat, SV Exim è nata come una visione per fornire attrezzature industriali di alta qualità al settore manifatturiero in crescita in India. Ciò che è iniziato come una piccola operazione è cresciuto fino a diventare un fornitore globalmente riconosciuto di attrezzature industriali e marine.",
+      "p2": "Il nostro viaggio è stato segnato da una crescita continua, espansione strategica e un impegno incrollabile verso la soddisfazione del cliente. Oggi serviamo clienti in oltre 50 paesi, dalle piccole operazioni alle grandi multinazionali.",
+      "p3": "Con oltre 5000 consegne riuscite e un tasso di soddisfazione del cliente del 99,8%, abbiamo costruito la nostra reputazione su prodotti di qualità, servizio affidabile e competenza tecnica su cui i nostri clienti possono contare."
+    },
+    "mission": "La Nostra Missione",
+    "missionContent": "Fornire soluzioni di attrezzature industriali e marine di livello mondiale che consentano ai nostri clienti di raggiungere l'eccellenza operativa e una crescita sostenibile.",
+    "vision": "La Nostra Visione",
+    "visionContent": "Essere il leader globale nella fornitura di attrezzature industriali e marine, noto per innovazione, affidabilità e partnership eccezionali con i clienti.",
+    "ourJourney": "Il Nostro Viaggio",
+    "values": "I Nostri Valori",
+    "milestones": {
+      "2005": {
+        "year": "2005",
+        "title": "Azienda Fondata",
+        "description": "Iniziato come piccolo fornitore di attrezzature industriali a Bhavnagar"
+      },
+      "2008": {
+        "year": "2008",
+        "title": "Divisione Marina",
+        "description": "Espansione nelle attrezzature marine e soluzioni offshore"
+      },
+      "2012": {
+        "year": "2012",
+        "title": "Espansione Internazionale",
+        "description": "Iniziato a servire clienti in Medio Oriente e Sud-est Asiatico"
+      },
+      "2016": {
+        "year": "2016",
+        "title": "Lancio Divisione Servizi",
+        "description": "Introdotti servizi dedicati di manutenzione, riparazione e ispezione in loco"
+      },
+      "2020": {
+        "year": "2020",
+        "title": "Trasformazione Digitale",
+        "description": "Lancio della piattaforma online e del servizio clienti digitale"
+      },
+      "2024": {
+        "year": "2024",
+        "title": "Portata Globale",
+        "description": "Ora serviamo 50+ paesi con 5000+ consegne riuscite"
+      }
+    },
+    "valuesList": {
+      "quality": {
+        "title": "Qualità Prima di Tutto",
+        "description": "Ogni prodotto subisce test rigorosi e soddisfa gli standard internazionali"
+      },
+      "customer": {
+        "title": "Focus sul Cliente",
+        "description": "Costruire relazioni a lungo termine attraverso servizio e supporto eccezionali"
+      },
+      "innovation": {
+        "title": "Innovazione",
+        "description": "Adozione continua di nuove tecnologie e miglioramento dei nostri processi"
+      },
+      "integrity": {
+        "title": "Integrità",
+        "description": "Pratiche commerciali trasparenti e comunicazione onesta con tutte le parti interessate"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Pronto a discutere delle tue esigenze di attrezzature industriali e marine? Il nostro team di esperti è qui per aiutarti a trovare le soluzioni perfette per le tue esigenze.",
+    "sendMessageTitle": "Inviaci un Messaggio",
+    "form": {
+      "fullName": "Nome Completo",
+      "company": "Azienda",
+      "email": "Indirizzo Email",
+      "phone": "Numero di Telefono",
+      "inquiryType": "Tipo di Richiesta",
+      "subject": "Oggetto",
+      "message": "Messaggio",
+      "placeholders": {
+        "fullName": "Inserisci il tuo nome completo",
+        "company": "Nome della tua azienda",
+        "email": "Inserisci la tua email",
+        "phone": "Inserisci il tuo numero di telefono",
+        "subject": "Breve oggetto della tua richiesta",
+        "message": "Descrivi le tue esigenze in dettaglio..."
+      },
+      "inquiryTypes": {
+        "quote": "Richiesta Preventivo",
+        "productInfo": "Informazioni Prodotto",
+        "technicalSupport": "Supporto Tecnico",
+        "partnership": "Opportunità di Partnership",
+        "other": "Altro"
+      }
+    },
+    "contactInfo": {
+      "phone": "Telefono",
+      "email": "Email",
+      "address": "Indirizzo",
+      "businessHours": "Orari di Apertura"
+    },
+    "immediateAssistance": {
+      "title": "Hai Bisogno di Assistenza Immediata?",
+      "description": "Per richieste urgenti o supporto tecnico, chiamaci direttamente",
+      "callNow": "Chiama Ora"
+    },
+    "ourLocation": "La Nostra Posizione",
+    "openInMaps": "Apri in Google Maps"
+  },
+  "products": {
+    "title": "I Nostri Prodotti",
+    "subtitle": "Gamma completa di attrezzature industriali e marine",
+    "searchPlaceholder": "Cerca prodotti...",
+    "filters": {
+      "category": "Categoria",
+      "brand": "Marca",
+      "allCategories": "Tutte le Categorie",
+      "allBrands": "Tutte le Marche"
+    },
+    "categories": {
+      "industrialPumps": "Pompe Industriali",
+      "powerGeneration": "Generazione di Energia",
+      "valvesControls": "Valvole e Controlli",
+      "processEquipment": "Attrezzature di Processo",
+      "marineEquipment": "Attrezzature Marine",
+      "compressors": "Compressori"
+    },
+    "brands": {
+      "premium": "SV Premium",
+      "marine": "SV Marine",
+      "industrial": "SV Industrial",
+      "process": "SV Process"
+    }
+  },
+  "quoteForm": {
+    "title": "Richiedi un Preventivo",
+    "description": "Compila i tuoi dati e ti contatteremo presto.",
+    "form": {
+      "product": "Prodotto",
+      "fullName": "Nome Completo",
+      "email": "Email",
+      "phone": "Telefono",
+      "location": "Località",
+      "budget": "Fascia di Budget",
+      "message": "Messaggio / Dettagli",
+      "placeholders": {
+        "fullName": "Inserisci nome completo",
+        "email": "esempio@mail.com",
+        "phone": "+91 9876543210",
+        "location": "Città, Paese",
+        "message": "Descrivi le tue esigenze..."
+      },
+      "budgetOptions": {
+        "select": "Seleziona budget",
+        "range1": "$1,000 - $5,000",
+        "range2": "$5,000 - $10,000",
+        "range3": "$10,000 - $50,000",
+        "range4": "$50,000+"
+      }
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Ops! Pagina non trovata",
+    "returnHome": "Torna alla Home"
+  }
+}
