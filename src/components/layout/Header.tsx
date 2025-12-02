@@ -46,7 +46,9 @@ const Header = () => {
             <img src={logo} alt="SV Exim Logo" className="h-12 w-12" />
             <div>
               <h1 className="text-xl font-bold text-primary">SV Exim</h1>
-              <p className="text-xs text-muted-foreground">Industrial & Marine Equipment</p>
+              <p className="text-xs text-muted-foreground">
+                Industrial & Marine Equipment
+              </p>
             </div>
           </Link>
 
@@ -65,7 +67,12 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Button variant="quote" size="sm">
+
+            {/* ✅ FIXED BUTTON */}
+            <Button
+              size="sm"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow"
+            >
               Get Quote
             </Button>
           </nav>
@@ -75,7 +82,11 @@ const Header = () => {
             className="md:hidden p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-muted"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
@@ -88,14 +99,21 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className={`text-base font-medium transition-colors duration-200 ${
-                    isActive(item.href) ? "text-primary" : "text-muted-foreground hover:text-primary"
+                    isActive(item.href)
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button variant="quote" size="sm" className="self-start">
+
+              {/* ✅ FIXED MOBILE BUTTON */}
+              <Button
+                size="sm"
+                className="self-start bg-primary text-primary-foreground hover:bg-primary/90 shadow"
+              >
                 Get Quote
               </Button>
             </div>
