@@ -1,4 +1,3 @@
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
@@ -6,6 +5,7 @@ import Index from "./pages/Index";
 import Products from "./pages/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";        // <-- NEW PAGE IMPORT
 import NotFound from "./pages/NotFound";
 import "./i18n";
 
@@ -20,7 +20,9 @@ const App = () => (
         <Route path="/products" element={<Products />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="/blog" element={<Blog />} />        {/* <-- ADDED BLOG ROUTE */}
+        
+        {/* Catch-All Route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -1,212 +1,127 @@
-import { useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Globe, Shield } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import heroImage from "../../assets/hero-industrial-equipment.jpg";
-
+import heroImage from "@/assets/hero-industrial-equipment.jpg";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
-
-import { useTranslation } from "react-i18next";
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import productPump from "@/assets/product-pump.jpg";
+import productGenerator from "@/assets/product-generator.jpg";
+import productValves from "@/assets/product-valves.jpg";
+import productHeatExchanger from "@/assets/product-heat-exchanger.jpg";
+import productPropulsion from "@/assets/product-propulsion.jpg";
+import productCompressor from "@/assets/product-compressor.jpg";
 
 const HeroSection = () => {
-  const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
-  const { t } = useTranslation();
+  const carouselImages = [
+    { src: productPump, alt: "Industrial Pumps" },
+    { src: productGenerator, alt: "Power Generators" },
+    { src: productValves, alt: "Industrial Valves" },
+    { src: productHeatExchanger, alt: "Heat Exchangers" },
+    { src: productPropulsion, alt: "Marine Propulsion" },
+    { src: productCompressor, alt: "Air Compressors" },
+  ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background via-brand-light to-muted">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
-          
-          {/* Hero Content */}
-          <div className="space-y-8">
+    <section
+      className="relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${heroImage})`,
+      }}
+    >
+      {/* Overlay Behind Content */}
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="py-20">
+          <div className="max-w-3xl mx-auto text-center space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                {t("hero.title")}
+                Industrial &{" "}
+                <span className="text-primary">Marine Equipment</span>{" "}
+                Excellence
               </h1>
 
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
-                {t("hero.subtitle")}
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                Trusted supplier of premium industrial and marine equipment serving global clients with quality, reliability, and exceptional service since 2005.
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Dialog open={open} onOpenChange={setOpen}>
-                <DialogTrigger asChild>
-                  <Button
-                    variant="default"
-                    size="lg"
-                    className="group bg-blue-600 hover:bg-blue-700 text-white"
-                  >
-                    {t("hero.getQuoteNow")}
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </DialogTrigger>
-
-                <DialogContent className="bg-white text-black rounded-xl max-w-md w-full p-5 border border-blue-200 shadow-xl max-h-[80vh] overflow-y-auto">
-                  <DialogHeader>
-                    <DialogTitle className="text-xl font-semibold text-blue-700">
-                      {t("common.getQuote")}
-                    </DialogTitle>
-                  </DialogHeader>
-
-                  <form className="space-y-4 mt-3">
-                    {/* Full Name */}
-                    <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">
-                        {t("contact.form.fullName")}
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                        placeholder={t("contact.form.placeholders.fullName")}
-                      />
-                    </div>
-
-                    {/* Email */}
-                    <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">
-                        {t("contact.form.email")}
-                      </label>
-                      <input
-                        type="email"
-                        className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                        placeholder={t("contact.form.placeholders.email")}
-                      />
-                    </div>
-
-                    {/* Phone */}
-                    <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">
-                        {t("contact.form.phone")}
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                        placeholder={t("contact.form.placeholders.phone")}
-                      />
-                    </div>
-
-                    {/* Location */}
-                    <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">
-                        {t("quoteForm.form.location")}
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                        placeholder={t("quoteForm.form.placeholders.location")}
-                      />
-                    </div>
-
-                    {/* Budget */}
-                    <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">
-                        {t("quoteForm.form.budget")}
-                      </label>
-                      <select className="w-full h-10 px-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                        <option>{t("quoteForm.form.budgetOptions.select")}</option>
-                        <option>{t("quoteForm.form.budgetOptions.range1")}</option>
-                        <option>{t("quoteForm.form.budgetOptions.range2")}</option>
-                        <option>{t("quoteForm.form.budgetOptions.range3")}</option>
-                        <option>{t("quoteForm.form.budgetOptions.range4")}</option>
-                      </select>
-                    </div>
-
-                    {/* Message */}
-                    <div className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">
-                        {t("quoteForm.form.message")}
-                      </label>
-                      <textarea
-                        rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                        placeholder={t("quoteForm.form.placeholders.message")}
-                      ></textarea>
-                    </div>
-
-                    {/* Submit */}
-                    <Button
-                      type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-base"
-                    >
-                      {t("common.submit")}
-                    </Button>
-                  </form>
-                </DialogContent>
-              </Dialog>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                variant="hero"
+                size="lg"
+                className="group bg-primary text-white hover:bg-primary/90 shadow-lg"
+              >
+                Get Quote Now
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
 
               <Button
-                variant="secondary"
+                variant="outline"
                 size="lg"
-                onClick={() => navigate("/products")}
+                className="border-primary text-primary hover:bg-primary hover:text-white"
               >
-                {t("common.viewProducts")}
+                View Products
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
+            <div className="grid grid-cols-3 gap-6 pt-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-2 mx-auto">
-                  <Award className="h-6 w-6 text-blue-600" />
+                <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-2 mx-auto">
+                  <Award className="h-6 w-6 text-primary" />
                 </div>
-                <div className="text-2xl font-bold text-blue-700">
-                  20+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {t("hero.stats.yearsExperience")}
-                </div>
+                <div className="text-2xl font-bold text-primary">19+</div>
+                <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
 
               <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-2 mx-auto">
-                  <Globe className="h-6 w-6 text-blue-600" />
+                <div className="flex items-center justify-center w-12 h-12 bg-accent/10 rounded-lg mb-2 mx-auto">
+                  <Globe className="h-6 w-6 text-accent" />
                 </div>
-                <div className="text-2xl font-bold text-blue-700">
-                  50+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {t("hero.stats.countriesServed")}
-                </div>
+                <div className="text-2xl font-bold text-primary">50+</div>
+                <div className="text-sm text-muted-foreground">Countries Served</div>
               </div>
 
               <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-2 mx-auto">
-                  <Shield className="h-6 w-6 text-blue-600" />
+                <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-2 mx-auto">
+                  <Shield className="h-6 w-6 text-primary" />
                 </div>
-                <div className="text-2xl font-bold text-blue-700">
-                  100%
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {t("hero.stats.qualityAssured")}
-                </div>
+                <div className="text-2xl font-bold text-primary">100%</div>
+                <div className="text-sm text-muted-foreground">Quality Assured</div>
               </div>
             </div>
-          </div>
 
-          {/* Hero Image */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-2xl shadow-hero">
-              <img
-                src={heroImage}
-                alt={t("hero.title")}
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-accent/10"></div>
+            {/* Carousel */}
+            <div className="pt-12">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                plugins={[
+                  Autoplay({
+                    delay: 2000,
+                  }),
+                ]}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  {carouselImages.map((image, index) => (
+                    <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                      <div className="relative overflow-hidden rounded-xl shadow hover:shadow-xl transition-shadow duration-300">
+                        <img src={image.src} alt={image.alt} className="w-full h-40 object-cover" />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
-
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-blue-200 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-300 rounded-full blur-xl"></div>
           </div>
-
         </div>
       </div>
     </section>
