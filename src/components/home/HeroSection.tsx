@@ -52,7 +52,7 @@ const HeroSection = () => {
                 Get Quote Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="minimal" size="lg">
+              <Button variant="minimal" size="lg" onClick={(e)=>{window.location.href = '/products'}}>
                 View Products
               </Button>
             </div>

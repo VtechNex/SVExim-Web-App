@@ -14,88 +14,79 @@ import {
 
 import { useTranslation } from "react-i18next";
 
-import pumpImage from "@/assets/product-pump.jpg";
-import generatorImage from "@/assets/product-generator.jpg";
-import valvesImage from "@/assets/product-valves.jpg";
-import heatExchangerImage from "@/assets/product-heat-exchanger.jpg";
-import propulsionImage from "@/assets/product-propulsion.jpg";
-import compressorImage from "@/assets/product-compressor.jpg";
+import PRODUCTS from '@/services/products';
+import QUOTES from '@/services/quotes';
 
 const FeaturedProducts = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const [showQuoteForm, setShowQuoteForm] = React.useState(false);
+  const [products, setProducts] = React.useState([]);
+  const [openQuote, setOpenQuote] = React.useState(false);
   const [selectedProduct, setSelectedProduct] = React.useState(null);
+  const [startQuote, setStartQuote] = React.useState(false);
+  const [form, setForm] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    location: "",
+    budget: "",
+    message: ""
+  });
+
+  const resetForm = () => {
+    setForm ({
+      name: "",
+      email: "",
+      phone: "",
+      location: "",
+      budget: "",
+      message: ""
+    })
+  }
+
+  React.useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await PRODUCTS.GET(1, 6);
+
+      if (response.status !== 200) {
+        console.error('Error while fetching products', response);
+        setProducts([]);
+        return;
+      }
+
+      const fetchedItems = response.data.items || [];
+
+      // Store products
+      setProducts(fetchedItems)
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleQuoteClick = (product) => {
+    resetForm();
     setSelectedProduct(product);
-    setShowQuoteForm(true);
+    setOpenQuote(true);
   };
 
-  // Product data mapped to translation keys
-  const products = [
-    {
-      id: 1,
-      name: t("featuredProducts.products.centrifugalPump"),
-      category: t("featuredProducts.categories.industrialPumps"),
-      image: pumpImage,
-      specs: "Flow Rate: 500 GPM | Head: 200 ft | Material: SS316",
-      price: t("common.requestQuote"),
-      featured: true,
-      rating: 4.9,
-    },
-    {
-      id: 2,
-      name: t("featuredProducts.products.marineGenerator"),
-      category: t("featuredProducts.categories.powerGeneration"),
-      image: generatorImage,
-      specs: "Power: 250 KVA | RPM: 1500 | Fuel: Diesel",
-      price: t("common.requestQuote"),
-      featured: true,
-      rating: 4.8,
-    },
-    {
-      id: 3,
-      name: t("featuredProducts.products.ballValves"),
-      category: t("featuredProducts.categories.valvesControls"),
-      image: valvesImage,
-      specs: "Size: 2-12 inches | Pressure: 600 PSI | Material: SS304",
-      price: t("common.requestQuote"),
-      featured: false,
-      rating: 4.7,
-    },
-    {
-      id: 4,
-      name: t("featuredProducts.products.heatExchanger"),
-      category: t("featuredProducts.categories.processEquipment"),
-      image: heatExchangerImage,
-      specs: "Capacity: 500 kW | Tubes: Copper | Design: Shell & Tube",
-      price: t("common.requestQuote"),
-      featured: true,
-      rating: 4.9,
-    },
-    {
-      id: 5,
-      name: t("featuredProducts.products.propulsionSystem"),
-      category: t("featuredProducts.categories.marineEquipment"),
-      image: propulsionImage,
-      specs: "Power: 1000 HP | Shaft: Stainless Steel | Propeller: 4-blade",
-      price: t("common.requestQuote"),
-      featured: false,
-      rating: 4.8,
-    },
-    {
-      id: 6,
-      name: t("featuredProducts.products.airCompressor"),
-      category: t("featuredProducts.categories.compressors"),
-      image: compressorImage,
-      specs: "Capacity: 500 CFM | Pressure: 175 PSI | Motor: 50 HP",
-      price: t("common.requestQuote"),
-      featured: false,
-      rating: 4.6,
-    },
-  ];
+  const handleQuoteSubmit = async (e) => {
+    e.preventDefault();
+    setStartQuote(true);
+    const pid = selectedProduct.id;
+    const quote = { ...form, product: pid }
+    const response = await QUOTES.MAKE(quote);
+    if (response.status !== 201) {
+      alert('Something went wrong! Try again after some time.')
+      setStartQuote(false);
+      return;
+    }
+
+    resetForm();
+    setOpenQuote(false);
+    setSelectedProduct(null);
+    setStartQuote(false);
+  }
 
   return (
     <>
@@ -120,16 +111,10 @@ const FeaturedProducts = () => {
               >
                 <div className="relative overflow-hidden">
                   <img
-                    src={product.image}
-                    alt={product.name}
+                    src={product.images[0]}
+                    alt={product.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-
-                  {product.featured && (
-                    <Badge className="absolute top-3 left-3 bg-accent text-accent-foreground">
-                      {t("common.inStock")}
-                    </Badge>
-                  )}
 
                   <div className="absolute top-3 right-3 flex items-center space-x-1 bg-white/90 rounded-full px-2 py-1">
                     <Star className="h-3 w-3 text-yellow-500 fill-current" />
@@ -145,12 +130,12 @@ const FeaturedProducts = () => {
                       </Badge>
 
                       <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {product.name}
+                        {product.title}
                       </h3>
                     </div>
 
                     <p className="text-sm text-muted-foreground">
-                      {product.specs}
+                      {product.description}
                     </p>
 
                     <div className="flex items-center justify-between pt-2">
@@ -189,7 +174,7 @@ const FeaturedProducts = () => {
       </section>
 
       {/* Quote Dialog */}
-      <Dialog open={showQuoteForm} onOpenChange={setShowQuoteForm}>
+      <Dialog open={openQuote} onOpenChange={setOpenQuote}>
         <DialogContent className="bg-white text-black rounded-xl max-w-md w-full p-5 border border-blue-200 shadow-xl max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-xl font-semibold text-blue-700">
@@ -197,7 +182,7 @@ const FeaturedProducts = () => {
             </DialogTitle>
           </DialogHeader>
 
-          <form className="space-y-4 mt-3">
+          <form className="space-y-4 mt-3" onSubmit={(e)=>handleQuoteSubmit(e)}>
             {/* Product */}
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
@@ -205,9 +190,11 @@ const FeaturedProducts = () => {
               </label>
               <input
                 type="text"
-                value={selectedProduct?.name || ""}
+                value={selectedProduct?.title || ""}
                 readOnly
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg bg-gray-100"
+                onChange={(e)=>setSelectedProduct({...selectedProduct, title: e.target.value})}
+                disabled={startQuote}
               />
             </div>
 
@@ -220,6 +207,9 @@ const FeaturedProducts = () => {
                 type="text"
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.fullName")}
+                value={form.name}
+                onChange={(e)=>setForm({...form, name: e.target.value})}
+                disabled={startQuote}
               />
             </div>
 
@@ -232,6 +222,9 @@ const FeaturedProducts = () => {
                 type="email"
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.email")}
+                value={form.email}
+                onChange={(e)=>setForm({...form, email: e.target.value})}
+                disabled={startQuote}
               />
             </div>
 
@@ -244,6 +237,9 @@ const FeaturedProducts = () => {
                 type="text"
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.phone")}
+                value={form.phone}
+                onChange={(e)=>setForm({...form, phone: e.target.value})}
+                disabled={startQuote}
               />
             </div>
 
@@ -256,6 +252,9 @@ const FeaturedProducts = () => {
                 type="text"
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.location")}
+                value={form.location}
+                onChange={(e)=>setForm({...form, location: e.target.value})}
+                disabled={startQuote}
               />
             </div>
 
@@ -264,7 +263,10 @@ const FeaturedProducts = () => {
               <label className="text-sm font-medium text-gray-700">
                 {t("quoteForm.form.budget")}
               </label>
-              <select className="w-full h-10 px-3 border border-gray-300 rounded-lg">
+              <select className="w-full h-10 px-3 border border-gray-300 rounded-lg"
+                value={form.budget}
+                onChange={(e)=>setForm({...form, budget: e.target.value})}
+                disabled={startQuote}>
                 <option>{t("quoteForm.form.budgetOptions.select")}</option>
                 <option>{t("quoteForm.form.budgetOptions.range1")}</option>
                 <option>{t("quoteForm.form.budgetOptions.range2")}</option>
@@ -279,14 +281,18 @@ const FeaturedProducts = () => {
                 {t("quoteForm.form.message")}
               </label>
               <textarea
+                disabled={startQuote}
                 rows={3}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.message")}
+                value={form.message}
+                onChange={(e)=>setForm({...form, message: e.target.value})}
               ></textarea>
             </div>
 
             {/* Submit */}
-            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-base">
+            <Button disabled={startQuote}
+              type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-base">
               {t("common.submit")}
             </Button>
           </form>

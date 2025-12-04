@@ -24,25 +24,53 @@ import {
 } from "@/components/ui/dialog";
 
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslation } from "react-i18next";
 
-import pumpImage from "@/assets/product-pump.jpg";
-import generatorImage from "@/assets/product-generator.jpg";
-import valvesImage from "@/assets/product-valves.jpg";
-import heatExchangerImage from "@/assets/product-heat-exchanger.jpg";
-import propulsionImage from "@/assets/product-propulsion.jpg";
-import compressorImage from "@/assets/product-compressor.jpg";
 import PRODUCTS from '@/services/products';
+import QUOTES from '@/services/quotes';
 
 const Products = () => {
-  // --------------------------
-  //  QUOTE POPUP STATES
-  // --------------------------
-  const [openQuote, setOpenQuote] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const { t } = useTranslation();
+  // handled from backend data
   const [products, setProducts] = useState([]);
   const [pagination, setPagination] = useState(null);
 
+  // used for filters
+  const [searchText, setSearchText] = useState("");
+  const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
+  const [condition, setCondition] = useState("");
+  const [status, setStatus] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [sort, setSort] = useState("");
+
+  // used for quote
+  const [openQuote, setOpenQuote] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [startQuote, setStartQuote] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    location: "",
+    budget: "",
+    message: ""
+  });
+
+  const resetForm = () => {
+    setForm ({
+      name: "",
+      email: "",
+      phone: "",
+      location: "",
+      budget: "",
+      message: ""
+    })
+  }
+
   const handleQuoteClick = (product) => {
+    resetForm();
     setSelectedProduct(product);
     setOpenQuote(true);
   };
@@ -74,14 +102,6 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  // --------------------------
-  //  FILTER STATES
-  // --------------------------
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all categories");
-  const [selectedBrand, setSelectedBrand] = useState("all brands");
-  const [visibleProducts, setVisibleProducts] = useState(20);
-
   const categories = [
     "All Categories",
     "Industrial Pumps",
@@ -100,28 +120,6 @@ const Products = () => {
     "SV Process"
   ];
 
-  // Filters
-  const filteredProducts = products?.filter((product) => {
-    const matchesSearchTerm =
-      product?.title.toLowerCase().includes(searchTerm.toLowerCase().trim()) ||
-      product?.category?.toLowerCase().includes(searchTerm.toLowerCase().trim()) ||
-      product?.brand?.toLowerCase().includes(searchTerm.toLowerCase().trim()) ||
-      product?.specs?.toLowerCase().includes(searchTerm.toLowerCase().trim()) ||
-      product?.description?.toLowerCase().includes(searchTerm.toLowerCase().trim());
-
-    const matchesCategory =
-      selectedCategory === "all categories" ||
-      product?.category?.toLowerCase() === selectedCategory;
-
-    const matchesBrand =
-      selectedBrand === "all brands" ||
-      product?.brand?.toLowerCase() === selectedBrand;
-
-    return matchesSearchTerm && matchesCategory && matchesBrand;
-  });
-
-  const productsToShow = filteredProducts?.slice(0, visibleProducts);
-
   const handleLoadMore = async () => {
     if (!pagination) return;
 
@@ -132,13 +130,46 @@ const Products = () => {
     if (response.status === 200) {
       setProducts(prev => [...prev, ...response.data.items]);
       setPagination(response.data.pagination);
-      setVisibleProducts(visibleProducts + 20);
     }
   };
 
-  useEffect(() => {
-    setVisibleProducts(20);
-  }, [searchTerm, selectedCategory, selectedBrand]);
+  const handleApplyFilters = async () => {
+    const response = await PRODUCTS.GET(1, 20, searchText, {
+      category,
+      brand,
+      condition,
+      status,
+      minPrice,
+      maxPrice,
+      sort,
+    });
+    
+    if (response.status !== 200) {
+      alert("Failed to fetch products.");
+      return;
+    }
+
+    setProducts(response.data.items);
+    setPagination(response.data.pagination);
+  };
+
+  const handleQuoteSubmit = async (e) => {
+    e.preventDefault();
+    setStartQuote(true);
+    const pid = selectedProduct.id;
+    const quote = { ...form, product: pid }
+    const response = await QUOTES.MAKE(quote);
+    if (response.status !== 201) {
+      alert('Something went wrong! Try again after some time.')
+      setStartQuote(false);
+      return;
+    }
+
+    resetForm();
+    setOpenQuote(false);
+    setSelectedProduct(null);
+    setStartQuote(false);
+  }
 
   // ----------------------------------------------------
   //               UI STARTS HERE
@@ -156,58 +187,113 @@ const Products = () => {
           </p>
         </div>
 
-        {/* Search + Filters */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
+        {/* Filters Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-8">
+
           <div className="lg:col-span-3">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search products..."
                 className="pl-10"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
               />
             </div>
           </div>
 
-          <div className="flex gap-4 lg:justify-end">
-            <Select
-              onValueChange={(value) => setSelectedCategory(value)}
-              value={selectedCategory}
-            >
-              <SelectTrigger className="w-full lg:w-40">
-                <SelectValue placeholder="Category" />
-              </SelectTrigger>
-              <SelectContent>
-                {categories.map((category) => (
-                  <SelectItem key={category} value={category.toLowerCase()}>
-                    {category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          {/* Category */}
+          <Select value={category} onValueChange={setCategory}>
+            <SelectTrigger>
+              <SelectValue placeholder="Category" />
+            </SelectTrigger>
+            <SelectContent>
+              {categories.map((c) => (
+                <SelectItem key={c} value={c.toLowerCase()}>
+                  {c}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
-            <Select
-              onValueChange={(value) => setSelectedBrand(value)}
-              value={selectedBrand}
-            >
-              <SelectTrigger className="w-full lg:w-32">
-                <SelectValue placeholder="Brand" />
-              </SelectTrigger>
-              <SelectContent>
-                {brands.map((brand) => (
-                  <SelectItem key={brand} value={brand.toLowerCase()}>
-                    {brand}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+          {/* Brand */}
+          <Select value={brand} onValueChange={setBrand}>
+            <SelectTrigger>
+              <SelectValue placeholder="Brand" />
+            </SelectTrigger>
+            <SelectContent>
+              {brands.map((b) => (
+                <SelectItem key={b} value={b.toLowerCase()}>
+                  {b}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          {/* Condition */}
+          <Select value={condition} onValueChange={setCondition}>
+            <SelectTrigger>
+              <SelectValue placeholder="Condition" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="new">New</SelectItem>
+              <SelectItem value="used">Used</SelectItem>
+              <SelectItem value="refurbished">Refurbished</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* Status */}
+          <Select value={status} onValueChange={setStatus}>
+            <SelectTrigger>
+              <SelectValue placeholder="Status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="in-stock">In Stock</SelectItem>
+              <SelectItem value="out-of-stock">Out of Stock</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* Min Price */}
+          <Input
+            type="number"
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+            placeholder="Min Price"
+          />
+
+          {/* Max Price */}
+          <Input
+            type="number"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value)}
+            placeholder="Max Price"
+          />
+
+          {/* Sort */}
+          <Select value={sort} onValueChange={setSort}>
+            <SelectTrigger className="w-full sm:w-48">
+              <SelectValue placeholder="Sort By" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="price-asc">Price: Low to High</SelectItem>
+              <SelectItem value="price-desc">Price: High to Low</SelectItem>
+              <SelectItem value="latest">Latest</SelectItem>
+              <SelectItem value="oldest">Oldest</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* Apply Filters Button */}
+          <Button
+            className="w-full sm:w-auto bg-primary text-primary-foreground"
+            onClick={handleApplyFilters}
+          >
+            Apply Filters
+          </Button>
         </div>
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {productsToShow?.map((product) => (
+          {products?.map((product) => (
             <Card
               key={product.id}
               className="group hover:shadow-card-hover transition-all duration-300 cursor-pointer overflow-hidden border-border/50 hover:border-primary/20"
@@ -282,7 +368,7 @@ const Products = () => {
 
         {/* Load More */}
         <div className="text-center mt-12">
-          {(pagination.page < pagination.totalPages) ? (
+          {(pagination?.page < pagination?.totalPages) ? (
             <Button variant="outline" size="lg" onClick={handleLoadMore}>
               Load More Products
             </Button>
@@ -311,7 +397,7 @@ const Products = () => {
             </DialogDescription>
           </DialogHeader>
 
-          <form className="space-y-4 mt-3">
+          <form className="space-y-4 mt-3" onSubmit={(e)=>handleQuoteSubmit(e)}>
             {/* Product Name */}
             <div className="space-y-1">
               <label className="block text-sm font-medium text-gray-700">Product</label>
@@ -319,6 +405,7 @@ const Products = () => {
                 value={selectedProduct?.title || ""}
                 readOnly
                 className="bg-gray-100"
+                onChange={(e)=>setSelectedProduct({...selectedProduct, title: e.target.value})}
               />
             </div>
 
@@ -331,6 +418,8 @@ const Products = () => {
                 type="text"
                 placeholder="Enter full name"
                 className="border-gray-300"
+                value={form.name}
+                onChange={(e)=>setForm({...form, name: e.target.value})}
               />
             </div>
 
@@ -343,6 +432,8 @@ const Products = () => {
                 type="email"
                 placeholder="example@mail.com"
                 className="border-gray-300"
+                value={form.email}
+                onChange={(e)=>setForm({...form, email: e.target.value})}
               />
             </div>
 
@@ -355,7 +446,39 @@ const Products = () => {
                 type="text"
                 placeholder="+91 9876543210"
                 className="border-gray-300"
+                value={form.phone}
+                onChange={(e)=>setForm({...form, phone: e.target.value})}
               />
+            </div>
+
+            {/* Location */}
+            <div className="space-y-1">
+              <label className="text-sm font-medium text-gray-700">
+                {t("quoteForm.form.location")}
+              </label>
+              <input
+                type="text"
+                className="w-full h-10 px-3 border border-gray-300 rounded-lg"
+                placeholder={t("quoteForm.form.placeholders.location")}
+                value={form.location}
+                onChange={(e)=>setForm({...form, location: e.target.value})}
+              />
+            </div>
+
+            {/* Budget */}
+            <div className="space-y-1">
+              <label className="text-sm font-medium text-gray-700">
+                {t("quoteForm.form.budget")}
+              </label>
+              <select className="w-full h-10 px-3 border border-gray-300 rounded-lg"
+                value={form.budget}
+                onChange={(e)=>setForm({...form, budget: e.target.value})}>
+                <option>{t("quoteForm.form.budgetOptions.select")}</option>
+                <option>{t("quoteForm.form.budgetOptions.range1")}</option>
+                <option>{t("quoteForm.form.budgetOptions.range2")}</option>
+                <option>{t("quoteForm.form.budgetOptions.range3")}</option>
+                <option>{t("quoteForm.form.budgetOptions.range4")}</option>
+              </select>
             </div>
 
             {/* Message */}
@@ -367,6 +490,8 @@ const Products = () => {
                 rows={3}
                 placeholder="Describe your requirements..."
                 className="border-gray-300"
+                value={form.message}
+                onChange={(e)=>setForm({...form, message: e.target.value})}
               />
             </div>
 
