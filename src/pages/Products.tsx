@@ -80,7 +80,7 @@ const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all categories");
   const [selectedBrand, setSelectedBrand] = useState("all brands");
-  const [visibleProducts, setVisibleProducts] = useState(8);
+  const [visibleProducts, setVisibleProducts] = useState(20);
 
   const categories = [
     "All Categories",
@@ -132,11 +132,12 @@ const Products = () => {
     if (response.status === 200) {
       setProducts(prev => [...prev, ...response.data.items]);
       setPagination(response.data.pagination);
+      setVisibleProducts(visibleProducts + 20);
     }
   };
 
   useEffect(() => {
-    setVisibleProducts(8);
+    setVisibleProducts(20);
   }, [searchTerm, selectedCategory, selectedBrand]);
 
   // ----------------------------------------------------
@@ -260,7 +261,6 @@ const Products = () => {
 
                   <div className="flex items-center justify-between pt-2">
                     <div className="text-sm font-medium text-primary">
-                      Request Quote
                     </div>
 
                     {/* BLUE BUTTON FOR BOTH: Request Quote & Notify Me */}
@@ -268,10 +268,9 @@ const Products = () => {
                       variant="default"
                       size="sm"
                       className="group/btn"
-                      disabled={!product.inStock}
                       onClick={() => handleQuoteClick(product)}
                     >
-                      {product.inStock ? "Request Quote" : "Notify Me"}
+                      Request Quote
                       <ArrowRight className="ml-1 h-3 w-3 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
                   </div>
@@ -283,7 +282,7 @@ const Products = () => {
 
         {/* Load More */}
         <div className="text-center mt-12">
-          {(visibleProducts < filteredProducts?.length) ? (
+          {(pagination.page < pagination.totalPages) ? (
             <Button variant="outline" size="lg" onClick={handleLoadMore}>
               Load More Products
             </Button>
@@ -317,7 +316,7 @@ const Products = () => {
             <div className="space-y-1">
               <label className="block text-sm font-medium text-gray-700">Product</label>
               <Input
-                value={selectedProduct?.name || ""}
+                value={selectedProduct?.title || ""}
                 readOnly
                 className="bg-gray-100"
               />
