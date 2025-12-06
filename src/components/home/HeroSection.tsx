@@ -48,7 +48,7 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="group">
+              <Button variant="hero" size="lg" className="group" onClick={(e)=>{window.location.href = '/contact'}}>
                 Get Quote Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>

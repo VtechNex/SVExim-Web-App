@@ -25,11 +25,11 @@ const Header = () => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4 text-primary" />
-              <span className="text-muted-foreground">+91 98765 43210</span>
+              <span className="text-muted-foreground">+91 9925072110</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4 text-primary" />
-              <span className="text-muted-foreground">info@svexim.com</span>
+              <span className="text-muted-foreground">sales.svexim@gmail.com</span>
             </div>
           </div>
           <div className="hidden md:block text-muted-foreground">
@@ -72,7 +72,7 @@ const Header = () => {
             <Button
               size="sm"
               className="bg-primary text-primary-foreground hover:bg-primary/90 shadow"
-            >
+                 onClick={(e)=>{window.location.href = '/contact'}}>
               Get Quote
             </Button>
           </nav>

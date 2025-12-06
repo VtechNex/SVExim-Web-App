@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -7,40 +6,41 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
   Send,
   MessageSquare,
   Building
 } from "lucide-react";
+import { Slot } from "@radix-ui/react-slot";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     toast({
       title: "Message Sent Successfully!",
       description: "We'll get back to you within 24 hours.",
     });
-    
+
     setIsSubmitting(false);
     // Reset form would go here
   };
@@ -48,15 +48,15 @@ const Contact = () => {
   const contactInfo = [
     {
       title: "Phone",
-      content: "‪+91 98765 43210‬",
+      content: "+91 9925072110",
       subtitle: "Mon-Fri 9AM-6PM IST",
       icon: Phone,
       color: "text-primary",
       bgColor: "bg-primary/10",
     },
     {
-      title: "Email", 
-      content: "info@svexim.com",
+      title: "Email",
+      content: "sales.svexim@gmail.com",
       subtitle: "24/7 Support Available",
       icon: Mail,
       color: "text-accent",
@@ -75,7 +75,7 @@ const Contact = () => {
       content: "Mon-Fri: 9AM-6PM",
       subtitle: "Sat: 9AM-1PM, Sun: Closed",
       icon: Clock,
-      color: "text-accent", 
+      color: "text-accent",
       bgColor: "bg-accent/10",
     },
   ];
@@ -83,13 +83,13 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Page Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Contact Us</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ready to discuss your industrial or marine equipment needs? Our expert team is here to help 
+            Ready to discuss your industrial or marine equipment needs? Our expert team is here to help
             you find the perfect solutions for your requirements.
           </p>
         </div>
@@ -109,26 +109,26 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name *</Label>
-                      <Input 
-                        id="name" 
+                      <Input
+                        id="name"
                         placeholder="Enter your full name"
                         required
                       />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="company">Company</Label>
-                      <Input 
-                        id="company" 
+                      <Input
+                        id="company"
                         placeholder="Your company name"
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
-                      <Input 
-                        id="email" 
+                      <Input
+                        id="email"
                         type="email"
                         placeholder="Enter your email"
                         required
@@ -136,8 +136,8 @@ const Contact = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input 
-                        id="phone" 
+                      <Input
+                        id="phone"
                         placeholder="Enter your phone number"
                       />
                     </div>
@@ -161,8 +161,8 @@ const Contact = () => {
 
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject *</Label>
-                    <Input 
-                      id="subject" 
+                    <Input
+                      id="subject"
                       placeholder="Brief subject of your inquiry"
                       required
                     />
@@ -170,7 +170,7 @@ const Contact = () => {
 
                   <div className="space-y-2">
                     <Label htmlFor="message">Message *</Label>
-                    <Textarea 
+                    <Textarea
                       id="message"
                       placeholder="Please describe your requirements in detail..."
                       className="min-h-32"
@@ -178,10 +178,10 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    variant="hero" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    variant="hero"
+                    size="lg"
                     className="w-full group"
                     disabled={isSubmitting}
                   >
@@ -221,10 +221,13 @@ const Contact = () => {
                 <Building className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold text-foreground mb-2">Need Immediate Assistance?</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  For urgent inquiries or technical support, call us directly
+                  For urgent inquiries or technical support, chat with us directly on WhatsApp
                 </p>
-                <Button variant="quote" size="sm" className="w-full">
-                  Call Now: +91 98765 43210
+                {/* Working WhatsApp Button */}
+                <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2.5 rounded-lg transition-all">
+                  <a href="https://wa.me/919925072110" target="_blank" rel="noopener noreferrer">
+                    WhatsApp: +91 99250 72110
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -241,7 +244,7 @@ const Contact = () => {
           </CardHeader>
           <CardContent>
             <div className="relative h-96 bg-muted rounded-lg overflow-hidden">
-              {/* Placeholder for Google Map - would be replaced with actual map integration */}
+              {/* Placeholder for Google Map */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center space-y-4">
                   <MapPin className="h-12 w-12 text-primary mx-auto" />
@@ -258,10 +261,10 @@ const Contact = () => {
           </CardContent>
         </Card>
       </main>
-      
+
       <Footer />
     </div>
   );
 };
 
-export default Contact;
+export default Contact;

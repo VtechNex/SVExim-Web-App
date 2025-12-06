@@ -35,15 +35,15 @@ const FeaturedProducts = () => {
   });
 
   const resetForm = () => {
-    setForm ({
+    setForm({
       name: "",
       email: "",
       phone: "",
       location: "",
       budget: "",
       message: ""
-    })
-  }
+    });
+  };
 
   React.useEffect(() => {
     const fetchProducts = async () => {
@@ -56,9 +56,7 @@ const FeaturedProducts = () => {
       }
 
       const fetchedItems = response.data.items || [];
-
-      // Store products
-      setProducts(fetchedItems)
+      setProducts(fetchedItems);
     };
 
     fetchProducts();
@@ -74,10 +72,11 @@ const FeaturedProducts = () => {
     e.preventDefault();
     setStartQuote(true);
     const pid = selectedProduct.id;
-    const quote = { ...form, product: pid }
+    const quote = { ...form, product: pid };
     const response = await QUOTES.MAKE(quote);
+
     if (response.status !== 201) {
-      alert('Something went wrong! Try again after some time.')
+      alert('Something went wrong! Try again later.');
       setStartQuote(false);
       return;
     }
@@ -86,7 +85,7 @@ const FeaturedProducts = () => {
     setOpenQuote(false);
     setSelectedProduct(null);
     setStartQuote(false);
-  }
+  };
 
   return (
     <>
@@ -109,13 +108,18 @@ const FeaturedProducts = () => {
                 key={product.id}
                 className="group hover:shadow-card-hover transition-all duration-300 cursor-pointer overflow-hidden border-border/50 hover:border-primary/20"
               >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={product.images[0]}
-                    alt={product.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                <div className="relative w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+                  {product.images?.[0] ? (
+                    <img
+                      src={product.images[0]}
+                      alt={product.title}
+                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="text-gray-400 text-4xl">📦</div>
+                  )}
 
+                  {/* Rating */}
                   <div className="absolute top-3 right-3 flex items-center space-x-1 bg-white/90 rounded-full px-2 py-1">
                     <Star className="h-3 w-3 text-yellow-500 fill-current" />
                     <span className="text-xs font-medium">{product.rating}</span>
@@ -182,8 +186,7 @@ const FeaturedProducts = () => {
             </DialogTitle>
           </DialogHeader>
 
-          <form className="space-y-4 mt-3" onSubmit={(e)=>handleQuoteSubmit(e)}>
-            {/* Product */}
+          <form className="space-y-4 mt-3" onSubmit={(e) => handleQuoteSubmit(e)}>
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
                 {t("quoteForm.form.product")}
@@ -193,12 +196,10 @@ const FeaturedProducts = () => {
                 value={selectedProduct?.title || ""}
                 readOnly
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg bg-gray-100"
-                onChange={(e)=>setSelectedProduct({...selectedProduct, title: e.target.value})}
                 disabled={startQuote}
               />
             </div>
 
-            {/* Full Name */}
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
                 {t("quoteForm.form.fullName")}
@@ -208,12 +209,11 @@ const FeaturedProducts = () => {
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.fullName")}
                 value={form.name}
-                onChange={(e)=>setForm({...form, name: e.target.value})}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
                 disabled={startQuote}
               />
             </div>
 
-            {/* Email */}
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
                 {t("quoteForm.form.email")}
@@ -223,12 +223,11 @@ const FeaturedProducts = () => {
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.email")}
                 value={form.email}
-                onChange={(e)=>setForm({...form, email: e.target.value})}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
                 disabled={startQuote}
               />
             </div>
 
-            {/* Phone */}
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
                 {t("quoteForm.form.phone")}
@@ -238,12 +237,11 @@ const FeaturedProducts = () => {
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.phone")}
                 value={form.phone}
-                onChange={(e)=>setForm({...form, phone: e.target.value})}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 disabled={startQuote}
               />
             </div>
 
-            {/* Location */}
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
                 {t("quoteForm.form.location")}
@@ -253,20 +251,21 @@ const FeaturedProducts = () => {
                 className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.location")}
                 value={form.location}
-                onChange={(e)=>setForm({...form, location: e.target.value})}
+                onChange={(e) => setForm({ ...form, location: e.target.value })}
                 disabled={startQuote}
               />
             </div>
 
-            {/* Budget */}
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
                 {t("quoteForm.form.budget")}
               </label>
-              <select className="w-full h-10 px-3 border border-gray-300 rounded-lg"
+              <select
+                className="w-full h-10 px-3 border border-gray-300 rounded-lg"
                 value={form.budget}
-                onChange={(e)=>setForm({...form, budget: e.target.value})}
-                disabled={startQuote}>
+                onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                disabled={startQuote}
+              >
                 <option>{t("quoteForm.form.budgetOptions.select")}</option>
                 <option>{t("quoteForm.form.budgetOptions.range1")}</option>
                 <option>{t("quoteForm.form.budgetOptions.range2")}</option>
@@ -275,7 +274,6 @@ const FeaturedProducts = () => {
               </select>
             </div>
 
-            {/* Message */}
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
                 {t("quoteForm.form.message")}
@@ -286,13 +284,15 @@ const FeaturedProducts = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                 placeholder={t("quoteForm.form.placeholders.message")}
                 value={form.message}
-                onChange={(e)=>setForm({...form, message: e.target.value})}
-              ></textarea>
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+              />
             </div>
 
-            {/* Submit */}
-            <Button disabled={startQuote}
-              type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-base">
+            <Button
+              disabled={startQuote}
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-base"
+            >
               {t("common.submit")}
             </Button>
           </form>

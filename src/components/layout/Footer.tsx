@@ -76,14 +76,14 @@ const Footer = () => {
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-primary" />
                 <span className="text-muted-foreground text-sm">
-                  +91 98765 43210
+                  +91 9925072110
                 </span>
               </li>
 
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-primary" />
                 <span className="text-muted-foreground text-sm">
-                  info@svexim.com
+                  sales.svexim@gmail.com
                 </span>
               </li>
 
@@ -125,7 +125,15 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            {t("footer.copyright")}
+            {t("footer.copyright")} • Developed by{" "}
+            <a
+              href="https://vtechnex.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Vtechnex
+            </a>
           </p>
 
           <p className="text-muted-foreground text-sm mt-2 md:mt-0">
